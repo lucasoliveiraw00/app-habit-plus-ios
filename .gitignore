@@ -1,0 +1,47 @@
+# Xcode Project Files
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/xcshareddata/xcschemes/
+!*.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+
+# Xcode Workspace Files
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+
+# Swift Package Manager
+Package.resolved
+!*.xcodeproj/**/Package.resolved
+
+# Ignore Build and Cache Folders
+build/
+DerivedData/
+
+# User Specific Settings
+xcuserdata/
+*.xcuserstate
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Other Tools
+.swiftpm
+.build/
+
+# Provisioning Certificates and Profiles
+*.mobileprovision
+*.xcconfig
+
+# Cache and Temporary Files
+*.DS_Store
+*.swp
+*.lock
+*.tmp
+*.orig
+*.bak
+Thumbs.db
