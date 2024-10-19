@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		491287622CC4496000AA4EFC /* HabitPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287612CC4496000AA4EFC /* HabitPlusApp.swift */; };
-		491287642CC4496000AA4EFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287632CC4496000AA4EFC /* ContentView.swift */; };
 		491287662CC4496100AA4EFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491287652CC4496100AA4EFC /* Assets.xcassets */; };
 		491287692CC4496100AA4EFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491287682CC4496100AA4EFC /* Preview Assets.xcassets */; };
+		491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287732CC44B2A00AA4EFC /* SplashView.swift */; };
+		491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287752CC44B6C00AA4EFC /* SplashUIState.swift */; };
+		491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287782CC45E9F00AA4EFC /* SplashViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4912875E2CC4496000AA4EFC /* HabitPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491287612CC4496000AA4EFC /* HabitPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitPlusApp.swift; sourceTree = "<group>"; };
-		491287632CC4496000AA4EFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		491287652CC4496100AA4EFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		491287682CC4496100AA4EFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		491287732CC44B2A00AA4EFC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		491287752CC44B6C00AA4EFC /* SplashUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIState.swift; sourceTree = "<group>"; };
+		491287782CC45E9F00AA4EFC /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,8 @@
 		491287602CC4496000AA4EFC /* HabitPlus */ = {
 			isa = PBXGroup;
 			children = (
+				4912876F2CC44AC300AA4EFC /* Splash */,
 				491287612CC4496000AA4EFC /* HabitPlusApp.swift */,
-				491287632CC4496000AA4EFC /* ContentView.swift */,
 				491287652CC4496100AA4EFC /* Assets.xcassets */,
 				491287672CC4496100AA4EFC /* Preview Content */,
 			);
@@ -65,6 +69,40 @@
 				491287682CC4496100AA4EFC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4912876F2CC44AC300AA4EFC /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				491287772CC45E8700AA4EFC /* ViewModel */,
+				491287722CC44B0400AA4EFC /* View */,
+				491287702CC44ACC00AA4EFC /* Model */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		491287702CC44ACC00AA4EFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				491287752CC44B6C00AA4EFC /* SplashUIState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		491287722CC44B0400AA4EFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				491287732CC44B2A00AA4EFC /* SplashView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		491287772CC45E8700AA4EFC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				491287782CC45E9F00AA4EFC /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				491287642CC4496000AA4EFC /* ContentView.swift in Sources */,
+				491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */,
 				491287622CC4496000AA4EFC /* HabitPlusApp.swift in Sources */,
+				491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */,
+				491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum SplashUIState {
+    case loading
+    case goToSingInScreen
+    case goToHomeScreen
+    case error(String)
+}
