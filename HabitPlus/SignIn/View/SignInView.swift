@@ -72,7 +72,7 @@ extension SignInView {
             .frame(height: 26)
             .background(Color.white)
             .border(Color.orange)
-
+        
     }
 }
 
@@ -82,7 +82,7 @@ extension SignInView {
             .frame(height: 26)
             .background(Color.white)
             .border(Color.orange)
-               
+        
     }
 }
 
@@ -103,8 +103,10 @@ extension SignInView {
                 .padding(.top, 48)
                 .padding(.bottom, 4)
             
-            NavigationLink("Realize seu Cadastro") {
-                Text("Tela de Cadastro")
+            ZStack {
+                NavigationLink("Realize seu Cadastro") {
+                    viewModel.signUpView()
+                }
             }
         }
     }

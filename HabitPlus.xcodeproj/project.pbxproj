@@ -21,6 +21,9 @@
 		498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A362CC4B3DB00D33A70 /* HomeView.swift */; };
 		498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */; };
 		498E2A3B2CC4B40300D33A70 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A3A2CC4B40300D33A70 /* HomeModel.swift */; };
+		498E2A412CC4BBCC00D33A70 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A402CC4BBCC00D33A70 /* SignUpView.swift */; };
+		498E2A472CC4BC2300D33A70 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A462CC4BC2300D33A70 /* SignUpModel.swift */; };
+		498E2A492CC4BC3D00D33A70 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A482CC4BC3D00D33A70 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		498E2A362CC4B3DB00D33A70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		498E2A3A2CC4B40300D33A70 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		498E2A402CC4BBCC00D33A70 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		498E2A462CC4BC2300D33A70 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		498E2A482CC4BC3D00D33A70 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 		491287602CC4496000AA4EFC /* HabitPlus */ = {
 			isa = PBXGroup;
 			children = (
+				498E2A3C2CC4BB9800D33A70 /* SignUp */,
 				498E2A312CC4B38700D33A70 /* Home */,
 				4912877A2CC4767900AA4EFC /* SignIn */,
 				4912876F2CC44AC300AA4EFC /* Splash */,
@@ -193,6 +200,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		498E2A3C2CC4BB9800D33A70 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				498E2A3D2CC4BBA900D33A70 /* Model */,
+				498E2A3E2CC4BBB000D33A70 /* ViewModel */,
+				498E2A3F2CC4BBB900D33A70 /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		498E2A3D2CC4BBA900D33A70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				498E2A462CC4BC2300D33A70 /* SignUpModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		498E2A3E2CC4BBB000D33A70 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				498E2A482CC4BC3D00D33A70 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		498E2A3F2CC4BBB900D33A70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				498E2A402CC4BBCC00D33A70 /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,9 +311,12 @@
 				498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */,
 				498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */,
 				491287832CC476E400AA4EFC /* SignInViewModel.swift in Sources */,
+				498E2A492CC4BC3D00D33A70 /* SignUpViewModel.swift in Sources */,
 				491287852CC476F300AA4EFC /* SignInModel.swift in Sources */,
+				498E2A412CC4BBCC00D33A70 /* SignUpView.swift in Sources */,
 				498E2A3B2CC4B40300D33A70 /* HomeModel.swift in Sources */,
 				491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */,
+				498E2A472CC4BC2300D33A70 /* SignUpModel.swift in Sources */,
 				491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */,
 				4912877F2CC476B500AA4EFC /* SignInView.swift in Sources */,
 			);
