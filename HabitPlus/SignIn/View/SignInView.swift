@@ -46,6 +46,14 @@ struct SignInView: View {
                                     .padding(.top, 16)
                             }
                         }
+                        
+                        if case SignInUIState.error(let error) = viewModel.uiState {
+                            Text("").alert(isPresented: .constant(true)) {
+                                Alert(title: Text("Habit Plus"), message: Text(error), dismissButton: .default(Text("Ok")) {
+                                    
+                                })
+                            }
+                        }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.horizontal, 32)
