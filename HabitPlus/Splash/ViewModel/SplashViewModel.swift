@@ -12,14 +12,15 @@ class SplashViewModel: ObservableObject {
     
     @Published var uiState: SplashUIState = .loading
     
+}
+
+extension SplashViewModel {
     func onAppear() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.uiState = .goToSingInScreen
         }
     }
-    
 }
-
 
 extension SplashViewModel {
     func signInView() -> some View {

@@ -17,6 +17,10 @@
 		491287832CC476E400AA4EFC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287822CC476E400AA4EFC /* SignInViewModel.swift */; };
 		491287852CC476F300AA4EFC /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287842CC476F300AA4EFC /* SignInModel.swift */; };
 		491287872CC478BA00AA4EFC /* SplashViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287862CC478BA00AA4EFC /* SplashViewRouter.swift */; };
+		498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */; };
+		498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A362CC4B3DB00D33A70 /* HomeView.swift */; };
+		498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */; };
+		498E2A3B2CC4B40300D33A70 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A3A2CC4B40300D33A70 /* HomeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		491287822CC476E400AA4EFC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		491287842CC476F300AA4EFC /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		491287862CC478BA00AA4EFC /* SplashViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewRouter.swift; sourceTree = "<group>"; };
+		498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
+		498E2A362CC4B3DB00D33A70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		498E2A3A2CC4B40300D33A70 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 		491287602CC4496000AA4EFC /* HabitPlus */ = {
 			isa = PBXGroup;
 			children = (
+				498E2A312CC4B38700D33A70 /* Home */,
 				4912877A2CC4767900AA4EFC /* SignIn */,
 				4912876F2CC44AC300AA4EFC /* Splash */,
 				491287612CC4496000AA4EFC /* HabitPlusApp.swift */,
@@ -137,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				491287822CC476E400AA4EFC /* SignInViewModel.swift */,
+				498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -145,6 +155,40 @@
 			isa = PBXGroup;
 			children = (
 				4912877E2CC476B500AA4EFC /* SignInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		498E2A312CC4B38700D33A70 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				498E2A332CC4B3AB00D33A70 /* Model */,
+				498E2A342CC4B3B200D33A70 /* ViewModel */,
+				498E2A352CC4B3BC00D33A70 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		498E2A332CC4B3AB00D33A70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				498E2A3A2CC4B40300D33A70 /* HomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		498E2A342CC4B3B200D33A70 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		498E2A352CC4B3BC00D33A70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				498E2A362CC4B3DB00D33A70 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,10 +264,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				491287872CC478BA00AA4EFC /* SplashViewRouter.swift in Sources */,
+				498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */,
 				491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */,
 				491287622CC4496000AA4EFC /* HabitPlusApp.swift in Sources */,
+				498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */,
+				498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */,
 				491287832CC476E400AA4EFC /* SignInViewModel.swift in Sources */,
 				491287852CC476F300AA4EFC /* SignInModel.swift in Sources */,
+				498E2A3B2CC4B40300D33A70 /* HomeModel.swift in Sources */,
 				491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */,
 				491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */,
 				4912877F2CC476B500AA4EFC /* SignInView.swift in Sources */,
@@ -368,6 +416,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,6 +446,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
