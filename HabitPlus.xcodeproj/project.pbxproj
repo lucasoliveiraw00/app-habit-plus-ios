@@ -13,6 +13,10 @@
 		491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287732CC44B2A00AA4EFC /* SplashView.swift */; };
 		491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287752CC44B6C00AA4EFC /* SplashUIState.swift */; };
 		491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287782CC45E9F00AA4EFC /* SplashViewModel.swift */; };
+		4912877F2CC476B500AA4EFC /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912877E2CC476B500AA4EFC /* SignInView.swift */; };
+		491287832CC476E400AA4EFC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287822CC476E400AA4EFC /* SignInViewModel.swift */; };
+		491287852CC476F300AA4EFC /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287842CC476F300AA4EFC /* SignInModel.swift */; };
+		491287872CC478BA00AA4EFC /* SplashViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287862CC478BA00AA4EFC /* SplashViewRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		491287732CC44B2A00AA4EFC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		491287752CC44B6C00AA4EFC /* SplashUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIState.swift; sourceTree = "<group>"; };
 		491287782CC45E9F00AA4EFC /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		4912877E2CC476B500AA4EFC /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		491287822CC476E400AA4EFC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		491287842CC476F300AA4EFC /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		491287862CC478BA00AA4EFC /* SplashViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 		491287602CC4496000AA4EFC /* HabitPlus */ = {
 			isa = PBXGroup;
 			children = (
+				4912877A2CC4767900AA4EFC /* SignIn */,
 				4912876F2CC44AC300AA4EFC /* Splash */,
 				491287612CC4496000AA4EFC /* HabitPlusApp.swift */,
 				491287652CC4496100AA4EFC /* Assets.xcassets */,
@@ -74,9 +83,9 @@
 		4912876F2CC44AC300AA4EFC /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				491287702CC44ACC00AA4EFC /* Model */,
 				491287772CC45E8700AA4EFC /* ViewModel */,
 				491287722CC44B0400AA4EFC /* View */,
-				491287702CC44ACC00AA4EFC /* Model */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -101,8 +110,43 @@
 			isa = PBXGroup;
 			children = (
 				491287782CC45E9F00AA4EFC /* SplashViewModel.swift */,
+				491287862CC478BA00AA4EFC /* SplashViewRouter.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4912877A2CC4767900AA4EFC /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				4912877B2CC4768C00AA4EFC /* Model */,
+				4912877C2CC4769200AA4EFC /* ViewModel */,
+				4912877D2CC4769D00AA4EFC /* View */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		4912877B2CC4768C00AA4EFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				491287842CC476F300AA4EFC /* SignInModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4912877C2CC4769200AA4EFC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				491287822CC476E400AA4EFC /* SignInViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4912877D2CC4769D00AA4EFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4912877E2CC476B500AA4EFC /* SignInView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,10 +219,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491287872CC478BA00AA4EFC /* SplashViewRouter.swift in Sources */,
 				491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */,
 				491287622CC4496000AA4EFC /* HabitPlusApp.swift in Sources */,
+				491287832CC476E400AA4EFC /* SignInViewModel.swift in Sources */,
+				491287852CC476F300AA4EFC /* SignInModel.swift in Sources */,
 				491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */,
 				491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */,
+				4912877F2CC476B500AA4EFC /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

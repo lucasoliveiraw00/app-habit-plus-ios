@@ -5,7 +5,7 @@
 //  Created by Lucas De Oliveira Silva Firmino on 19/10/24.
 //
 
-import Foundation
+import SwiftUI
 
 
 class SplashViewModel: ObservableObject {
@@ -14,8 +14,15 @@ class SplashViewModel: ObservableObject {
     
     func onAppear() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.uiState = .goToHomeScreen
+            self.uiState = .goToSingInScreen
         }
     }
     
+}
+
+
+extension SplashViewModel {
+    func signInView() -> some View {
+        return SplashViewRouter.makeSignInView()
+    }
 }
