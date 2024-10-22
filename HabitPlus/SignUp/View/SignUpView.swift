@@ -16,6 +16,7 @@ struct SignUpView: View {
     @State var document = ""
     @State var phone = ""
     @State var birthday = ""
+    @State var gender =  Gender.male
     
     var body: some View {
         ZStack {
@@ -35,6 +36,10 @@ struct SignUpView: View {
                         
                         phoneField
                         
+                        birthdayField
+                        
+                        genderField
+                        
                         enterButton
                         
                     }
@@ -44,6 +49,14 @@ struct SignUpView: View {
                 .padding(.horizontal, 8)
             }
             .padding()
+            
+            if case SignUpUIState.error(let error) = viewModel.uiState {
+                Text("").alert(isPresented: .constant(true)) {
+                    Alert(title: Text("Habit Plus"), message: Text(error), dismissButton: .default(Text("Ok")) {
+                        
+                    })
+                }
+            }
         }
     }
 }
@@ -91,7 +104,7 @@ extension SignUpView {
 }
 
 extension SignUpView {
-    var birthdayield: some View {
+    var birthdayField: some View {
         TextField("", text: $birthday)
             .frame(height: 26)
             .background(Color.white)
@@ -100,10 +113,25 @@ extension SignUpView {
     }
 }
 
+extension SignUpView {
+    var genderField: some View {
+        Picker("Gender", selection: $gender) {
+            ForEach(Gender.allCases, id: \.self) { value in
+                Text(value.rawValue).tag(value)
+            }
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .padding(.top, 16)
+        .padding(.bottom,32)
+        
+    }
+}
+
 
 extension SignUpView {
     var enterButton: some View {
         Button("Realize seu Cadastro") {
+            viewModel.home()
         }
         .padding(.top, 8)
     }

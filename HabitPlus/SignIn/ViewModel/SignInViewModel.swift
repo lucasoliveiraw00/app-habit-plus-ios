@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 
 class SignInViewModel: ObservableObject {
@@ -13,6 +14,21 @@ class SignInViewModel: ObservableObject {
     @Published var uiState: SignInUIState = .none
     @Published var email = ""
     @Published var password = ""
+    
+    private var cancellable: AnyCancellable?
+    private let publisher = PassthroughSubject<Bool, Never>()
+    
+    init () {
+        cancellable = publisher.sink { value in
+            if (value) {
+                self.uiState = .goToHomeScreen
+            }
+        }
+    }
+    
+    deinit {
+        cancellable?.cancel()
+    }
     
 }
 
@@ -31,7 +47,7 @@ extension SignInViewModel {
         return SignInViewRouter.makeHomeView()
     }
     func signUpView() -> some View {
-        return SignInViewRouter.makeSignUpView()
+        return SignInViewRouter.makeSignUpView(publisher: self.publisher)
     }
 }
 
