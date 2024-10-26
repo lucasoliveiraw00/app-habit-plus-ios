@@ -17,6 +17,8 @@
 		491287832CC476E400AA4EFC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287822CC476E400AA4EFC /* SignInViewModel.swift */; };
 		491287852CC476F300AA4EFC /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287842CC476F300AA4EFC /* SignInModel.swift */; };
 		491287872CC478BA00AA4EFC /* SplashViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491287862CC478BA00AA4EFC /* SplashViewRouter.swift */; };
+		4951FFDD2CC887C5003175AE /* EditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951FFDC2CC887C5003175AE /* EditTextView.swift */; };
+		4951FFE12CC88DFF003175AE /* CustomTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951FFE02CC88DFF003175AE /* CustomTextFieldStyle.swift */; };
 		498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */; };
 		498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A362CC4B3DB00D33A70 /* HomeView.swift */; };
 		498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */; };
@@ -24,6 +26,8 @@
 		498E2A412CC4BBCC00D33A70 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A402CC4BBCC00D33A70 /* SignUpView.swift */; };
 		498E2A472CC4BC2300D33A70 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A462CC4BC2300D33A70 /* SignUpModel.swift */; };
 		498E2A492CC4BC3D00D33A70 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A482CC4BC3D00D33A70 /* SignUpViewModel.swift */; };
+		49B962F12CCC7C640029A46C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B962F02CCC7C640029A46C /* String+Extension.swift */; };
+		49B962F32CCC81980029A46C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B962F22CCC81980029A46C /* CustomButton.swift */; };
 		49BAA1FF2CC71D0A00BBCDDF /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAA1FE2CC71D0A00BBCDDF /* Gender.swift */; };
 		49BAA2012CC7257700BBCDDF /* SignUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAA2002CC7257700BBCDDF /* SignUpViewRouter.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +44,8 @@
 		491287822CC476E400AA4EFC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		491287842CC476F300AA4EFC /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		491287862CC478BA00AA4EFC /* SplashViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewRouter.swift; sourceTree = "<group>"; };
+		4951FFDC2CC887C5003175AE /* EditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextView.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		4951FFE02CC88DFF003175AE /* CustomTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyle.swift; sourceTree = "<group>"; };
 		498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		498E2A362CC4B3DB00D33A70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -47,6 +53,8 @@
 		498E2A402CC4BBCC00D33A70 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		498E2A462CC4BC2300D33A70 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		498E2A482CC4BC3D00D33A70 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		49B962F02CCC7C640029A46C /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		49B962F22CCC81980029A46C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		49BAA1FE2CC71D0A00BBCDDF /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		49BAA2002CC7257700BBCDDF /* SignUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +179,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4951FFDB2CC8879F003175AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4951FFDF2CC88DDF003175AE /* Style */,
+				4951FFDC2CC887C5003175AE /* EditTextView.swift */,
+				49B962F22CCC81980029A46C /* CustomButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4951FFDF2CC88DDF003175AE /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				4951FFE02CC88DFF003175AE /* CustomTextFieldStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		498E2A312CC4B38700D33A70 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,9 +266,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		49B962EF2CCC7C410029A46C /* Lang */ = {
+			isa = PBXGroup;
+			children = (
+				49B962F02CCC7C640029A46C /* String+Extension.swift */,
+			);
+			path = Lang;
+			sourceTree = "<group>";
+		};
 		49BAA1FC2CC71CEB00BBCDDF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				49B962EF2CCC7C410029A46C /* Lang */,
+				4951FFDB2CC8879F003175AE /* View */,
 				49BAA1FD2CC71CF300BBCDDF /* Model */,
 			);
 			path = Common;
@@ -327,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				491287872CC478BA00AA4EFC /* SplashViewRouter.swift in Sources */,
+				49B962F12CCC7C640029A46C /* String+Extension.swift in Sources */,
 				498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */,
 				491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */,
 				491287622CC4496000AA4EFC /* HabitPlusApp.swift in Sources */,
@@ -336,11 +373,14 @@
 				498E2A492CC4BC3D00D33A70 /* SignUpViewModel.swift in Sources */,
 				491287852CC476F300AA4EFC /* SignInModel.swift in Sources */,
 				498E2A412CC4BBCC00D33A70 /* SignUpView.swift in Sources */,
+				49B962F32CCC81980029A46C /* CustomButton.swift in Sources */,
+				4951FFE12CC88DFF003175AE /* CustomTextFieldStyle.swift in Sources */,
 				498E2A3B2CC4B40300D33A70 /* HomeModel.swift in Sources */,
 				491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */,
 				49BAA1FF2CC71D0A00BBCDDF /* Gender.swift in Sources */,
 				498E2A472CC4BC2300D33A70 /* SignUpModel.swift in Sources */,
 				491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */,
+				4951FFDD2CC887C5003175AE /* EditTextView.swift in Sources */,
 				4912877F2CC476B500AA4EFC /* SignInView.swift in Sources */,
 				49BAA2012CC7257700BBCDDF /* SignUpViewRouter.swift in Sources */,
 			);

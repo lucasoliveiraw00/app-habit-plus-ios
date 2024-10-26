@@ -11,13 +11,6 @@ struct SignUpView: View {
     
     @ObservedObject var viewModel: SignUpViewModel
     
-    @State var fullName = ""
-    @State var email = ""
-    @State var document = ""
-    @State var phone = ""
-    @State var birthday = ""
-    @State var gender =  Gender.male
-    
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
@@ -31,6 +24,8 @@ struct SignUpView: View {
                         fullNameField
                         
                         emailField
+                        
+                        passwordField
                         
                         documentField
                         
@@ -63,80 +58,135 @@ struct SignUpView: View {
 
 extension SignUpView {
     var fullNameField: some View {
-        TextField("", text: $fullName)
-            .frame(height: 26)
-            .background(Color.white)
-            .border(Color.orange)
-        
+        EditTextView(
+            text: $viewModel.fullName,
+            placeholder: "Nome completo",
+            error: "Preencher nome completo",
+            enableFailure: fullNameIsInvalid()
+        )
+    }
+    
+    private func fullNameIsInvalid() -> Bool {
+        return viewModel.fullName.count < 5
     }
 }
-
 
 extension SignUpView {
     var emailField: some View {
-        TextField("", text: $email)
-            .frame(height: 26)
-            .background(Color.white)
-            .border(Color.orange)
-        
+        EditTextView(
+            text: $viewModel.email,
+            placeholder: "E-mail",
+            keyboard: .emailAddress,
+            error: "E-mail inválido",
+            enableFailure: emailIsValid()
+        )
+    }
+    
+    private func emailIsValid() -> Bool {
+        return !viewModel.email.isEmail()
     }
 }
 
+extension SignUpView {
+    var passwordField: some View {
+        EditTextView(
+            text: $viewModel.password,
+            placeholder: "Senha",
+            keyboard: .default,
+            enableSecure: true,
+            error: "Senha inválida",
+            enableFailure: passwordIsInvalid()
+        )
+    }
+    
+    private func passwordIsInvalid() -> Bool {
+        return viewModel.password.count <= 5
+    }
+}
 
 extension SignUpView {
     var documentField: some View {
-        TextField("", text: $document)
-            .frame(height: 26)
-            .background(Color.white)
-            .border(Color.orange)
-        
+        EditTextView(
+            text: $viewModel.document,
+            placeholder: "CPF",
+            keyboard: .numberPad,
+            error: "CPF inválido",
+            enableFailure: documentIsInvalid()
+        )
+    }
+    
+    private func documentIsInvalid() -> Bool {
+        return viewModel.document.count != 11
     }
 }
 
 extension SignUpView {
     var phoneField: some View {
-        TextField("", text: $phone)
-            .frame(height: 26)
-            .background(Color.white)
-            .border(Color.orange)
-        
+        EditTextView(
+            text: $viewModel.phone,
+            placeholder: "Celular",
+            keyboard: .numberPad,
+            error: "Celular inválido",
+            enableFailure: phoneIsInvalid()
+        )
+    }
+    
+    private func phoneIsInvalid() -> Bool {
+        return viewModel.phone.count < 10 || viewModel.phone.count >= 12
     }
 }
 
 extension SignUpView {
     var birthdayField: some View {
-        TextField("", text: $birthday)
-            .frame(height: 26)
-            .background(Color.white)
-            .border(Color.orange)
-        
+        EditTextView(
+            text: $viewModel.birthday,
+            placeholder: "Data de nascimento",
+            keyboard: .numberPad,
+            error: "Data inválida",
+            enableFailure: birthdayIsInvalid()
+        )
+    }
+    
+    private func birthdayIsInvalid() -> Bool {
+        return viewModel.birthday.count != 10
     }
 }
 
 extension SignUpView {
     var genderField: some View {
-        Picker("Gender", selection: $gender) {
+        Picker("Gender", selection: $viewModel.gender) {
             ForEach(Gender.allCases, id: \.self) { value in
                 Text(value.rawValue).tag(value)
             }
         }
         .pickerStyle(SegmentedPickerStyle())
         .padding(.top, 16)
-        .padding(.bottom,32)
-        
+        .padding(.bottom, 32)
     }
 }
-
 
 extension SignUpView {
     var enterButton: some View {
-        Button("Realize seu Cadastro") {
-            viewModel.home()
-        }
+        CustomButton(
+            text: "Realize seu Cadastro",
+            action: {
+                viewModel.home()
+            },
+            isLoading: viewModel.uiState == SignUpUIState.loading,
+            disabled: isFormInvalid()
+        )
         .padding(.top, 8)
     }
+    
+    private func isFormInvalid() -> Bool {
+        return fullNameIsInvalid() ||
+        emailIsValid() ||
+        passwordIsInvalid() ||
+        documentIsInvalid() ||
+        phoneIsInvalid() ||
+        birthdayIsInvalid()
+    }
 }
-
 #Preview {
     SignUpView(viewModel: SignUpViewModel())
 }

@@ -67,36 +67,45 @@ struct SignInView: View {
 }
 
 extension SignInView {
-    var emailField: some View {
-        TextField("", text: $viewModel.email)
-            .frame(height: 26)
-            .background(Color.white)
-            .border(Color.orange)
+    private var emailField: some View {
+        EditTextView(
+            text: $viewModel.email,
+            placeholder: "Peencher e-mail",
+            keyboard: .emailAddress,
+            error: "E-email inválido",
+            enableFailure: !viewModel.email.isEmail()
+        )
         
     }
 }
 
 extension SignInView {
-    var passwordField: some View {
-        SecureField("", text: $viewModel.password)
-            .frame(height: 26)
-            .background(Color.white)
-            .border(Color.orange)
+    private var passwordField: some View {
+        EditTextView(
+            text: $viewModel.password,
+            placeholder: "Peencher senha",
+            enableSecure: true,
+            error: "Senha inválida",
+            enableFailure: viewModel.password.count <= 5
+        )
         
     }
 }
 
 extension SignInView {
-    var enterButton: some View {
-        Button("Entrar") {
+    private var enterButton: some View {
+        CustomButton(text: "Entrar", action: {
             viewModel.login()
-        }
-        .padding(.top, 8)
-    }
+        },
+                     isLoading: viewModel.uiState == SignInUIState.loading,
+                     disabled: !viewModel.email.isEmail() || viewModel.password.count <= 5
+        )
+        .padding(.top, 12)
+        .accessibilityLabel("Botão de Entrar")    }
 }
 
 extension SignInView {
-    var registerLink: some View {
+    private var registerLink: some View {
         VStack {
             Text("Ainda não possui um login ativo?")
                 .foregroundColor(.gray)

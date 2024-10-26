@@ -28,7 +28,7 @@ struct SplashView: View {
 }
 
 extension SplashView {
-    func LoadingView(error: String? = nil) -> some View {
+    private func LoadingView(error: String? = nil) -> some View {
         ZStack {
             Image("logo")
                 .resizable()
@@ -36,7 +36,6 @@ extension SplashView {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(20)
                 .ignoresSafeArea()
-                .background(Color.white)
             
             if let error = error {
                 Text("").alert(isPresented: .constant(true)) {
