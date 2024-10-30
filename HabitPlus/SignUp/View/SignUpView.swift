@@ -170,7 +170,7 @@ extension SignUpView {
         CustomButton(
             text: "Realize seu Cadastro",
             action: {
-                viewModel.home()
+                viewModel.signUp()
             },
             isLoading: viewModel.uiState == SignUpUIState.loading,
             disabled: isFormInvalid()

@@ -24,11 +24,60 @@ class SignUpViewModel: ObservableObject {
 }
 
 extension SignUpViewModel {
-    func home() {
+    func signUp() {
         self.uiState = .loading
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.uiState = .success
-            self.publisher?.send(true)
+        
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        let dateFormatter = formatter.date(from: birthday)
+        
+        guard let dateFormatted = dateFormatter else {
+            self.uiState = .error("Data inválida \(birthday)")
+            return
+        }
+        
+        formatter.dateFormat = "yyy-MM-dd"
+        let birthday = formatter.string(from: dateFormatted)
+        
+        WebService.postUser(
+            request: SignUpRequest(
+                fullName: fullName,
+                email: email,
+                password: password,
+                document: document,
+                phone: phone,
+                birthday: birthday,
+                gender: gender.index
+            )
+        ) {successResponse, errorResponse in
+            if let error = errorResponse {
+                DispatchQueue.main.async {
+                    self.uiState = .error(error.detail)
+                }
+            }
+            if let success = successResponse {
+                WebService.login(
+                    request: SignInRequest(
+                        email: self.email,
+                        password: self.password
+                    )
+                ) { successResponse, errorResponse in
+                    if let error = errorResponse {
+                        DispatchQueue.main.async {
+                            self.uiState = .error(error.detail.message)
+                        }
+                    }
+                    if successResponse != nil {
+                        DispatchQueue.main.async {
+                            self.uiState = .success
+                            self.publisher?.send(success)
+                        }
+                    }
+                }
+            }
         }
     }
 }
