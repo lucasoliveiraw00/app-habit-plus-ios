@@ -21,6 +21,19 @@ class SignUpViewModel: ObservableObject {
     
     var publisher: PassthroughSubject<Bool, Never>?
     
+    private var cancellablePostUser: AnyCancellable?
+    private var cancellableLogin: AnyCancellable?
+    private let interactor: SignUpInteractor
+    
+    init (interactor: SignUpInteractor) {
+        self.interactor = interactor
+    }
+    
+    deinit {
+        cancellablePostUser?.cancel()
+        cancellableLogin?.cancel()
+    }
+    
 }
 
 extension SignUpViewModel {
@@ -42,7 +55,7 @@ extension SignUpViewModel {
         formatter.dateFormat = "yyy-MM-dd"
         let birthday = formatter.string(from: dateFormatted)
         
-        WebService.postUser(
+        cancellablePostUser = interactor.postUser(
             request: SignUpRequest(
                 fullName: fullName,
                 email: email,
@@ -52,33 +65,44 @@ extension SignUpViewModel {
                 birthday: birthday,
                 gender: gender.index
             )
-        ) {successResponse, errorResponse in
-            if let error = errorResponse {
-                DispatchQueue.main.async {
-                    self.uiState = .error(error.detail)
+        )
+        .receive(on: DispatchQueue.main)
+        .sink(
+            receiveCompletion: { completion in
+                switch completion {
+                case .failure(let appError):
+                    self.uiState = .error(appError.message)
+                    break
+                case .finished:
+                    break
                 }
-            }
-            if let success = successResponse {
-                WebService.login(
-                    request: SignInRequest(
-                        email: self.email,
-                        password: self.password
+            },
+            receiveValue: { created in
+                if created {
+                    self.cancellableLogin = self.interactor.login(
+                        request: SignInRequest(
+                            email: self.email,
+                            password: self.password
+                        )
                     )
-                ) { successResponse, errorResponse in
-                    if let error = errorResponse {
-                        DispatchQueue.main.async {
-                            self.uiState = .error(error.detail.message)
-                        }
-                    }
-                    if successResponse != nil {
-                        DispatchQueue.main.async {
+                    .receive(on: DispatchQueue.main)
+                    .sink(
+                        receiveCompletion: { completion in
+                            switch completion {
+                            case .failure(let appError):
+                                self.uiState = .error(appError.message)
+                                break
+                            case .finished:
+                                break
+                            }
+                        },
+                        receiveValue: { success in
+                            self.publisher?.send(created)
                             self.uiState = .success
-                            self.publisher?.send(success)
-                        }
-                    }
+                        })
                 }
-            }
-        }
+            })
+        
     }
 }
 

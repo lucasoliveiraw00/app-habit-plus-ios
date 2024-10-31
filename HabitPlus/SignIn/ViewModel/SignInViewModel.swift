@@ -16,9 +16,12 @@ class SignInViewModel: ObservableObject {
     @Published var password = ""
     
     private var cancellable: AnyCancellable?
+    private var cancellableLogin: AnyCancellable?
     private let publisher = PassthroughSubject<Bool, Never>()
+    private let interactor: SignInInteractor
     
-    init () {
+    init (interactor: SignInInteractor) {
+        self.interactor = interactor
         cancellable = publisher.sink { value in
             if (value) {
                 self.uiState = .goToHomeScreen
@@ -28,6 +31,7 @@ class SignInViewModel: ObservableObject {
     
     deinit {
         cancellable?.cancel()
+        cancellableLogin?.cancel()
     }
     
 }
@@ -36,23 +40,25 @@ extension SignInViewModel {
     func login() {
         self.uiState = .loading
         
-        WebService.login(
+        cancellableLogin = interactor.login(
             request: SignInRequest(
                 email: email,
                 password: password
             )
-        ) { successResponse, errorResponse in
-            if let error = errorResponse {
-                DispatchQueue.main.async {
-                    self.uiState = .error(error.detail.message)
-                }
+        )
+        .receive(on: DispatchQueue.main)
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .failure(let appError):
+                self.uiState = SignInUIState.error(appError.message)
+                break
+            case .finished:
+                break
             }
-            if successResponse != nil {
-                DispatchQueue.main.async {
-                    self.publisher.send(true)
-                }
-            }
-        }
+        }, receiveValue: { success in
+            self.publisher.send(true)
+        })
+        
     }
 }
 
