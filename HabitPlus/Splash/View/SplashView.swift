@@ -49,5 +49,5 @@ extension SplashView {
 }
 
 #Preview {
-    SplashView(viewModel: SplashViewModel())
+    SplashView(viewModel: SplashViewModel(interactor: SplashInteractor()))
 }

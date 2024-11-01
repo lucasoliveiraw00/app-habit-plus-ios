@@ -14,6 +14,7 @@ enum WebService {
         case base = "https://habitplus-api.tiagoaguiar.co"
         case postUser = "/users"
         case login = "/auth/login"
+        case refreshToken = "/auth/refresh-token"
     }
     
     enum NetworkError {
@@ -21,6 +22,13 @@ enum WebService {
         case notFound
         case unauthorized
         case internalServerError
+    }
+    
+    enum Method: String {
+        case get
+        case post
+        case put
+        case delete
     }
     
     enum Result {
@@ -42,51 +50,61 @@ enum WebService {
     
     private static func call(
         path: Endpoint,
+        method: Method,
         contentType: ContentType,
         data: Data?,
         completion: @escaping (Result) -> Void
     ) {
         guard var urlRequest = completeUrl(path: path) else { return }
         
-        urlRequest.httpMethod = "POST"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
-        urlRequest.setValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
-        urlRequest.httpBody = data
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            guard let data = data, error == nil else {
-                completion(.failure(.internalServerError, nil))
-                return
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                switch response.statusCode {
-                case 400:
-                    completion(.failure(.badRequest, data))
-                    break
-                case 401:
-                    completion(.failure(.unauthorized, data))
-                    break
-                case 200:
-                    completion(.success(data))
-                    break
-                default:
-                    break
+        _ = LocalDataSource.shared.getUserAuth()
+            .sink { userAuth in
+                if let userAuth = userAuth {
+                    urlRequest.setValue("\(userAuth.tokenType) \(userAuth.acessToken)", forHTTPHeaderField: "Authorization")
                 }
+                
+                urlRequest.httpMethod = method.rawValue
+                urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
+                urlRequest.setValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
+                urlRequest.httpBody = data
+                
+                let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+                    guard let data = data, error == nil else {
+                        completion(.failure(.internalServerError, nil))
+                        return
+                    }
+                    
+                    if let response = response as? HTTPURLResponse {
+                        switch response.statusCode {
+                        case 400:
+                            completion(.failure(.badRequest, data))
+                            break
+                        case 401:
+                            completion(.failure(.unauthorized, data))
+                            break
+                        case 200:
+                            completion(.success(data))
+                            break
+                        default:
+                            break
+                        }
+                    }
+                }
+                
+                task.resume()
             }
-        }
-        
-        task.resume()
     }
     
     static func call<T: Encodable>(
         path: Endpoint,
+        method: Method = .post,
         body: T,
         completion: @escaping (Result) -> Void
     ) {
         guard let jsonData = try? JSONEncoder().encode(body) else { return }
         call(
-            path: .postUser,
+            path: path,
+            method: method,
             contentType: .json,
             data: jsonData,
             completion: completion
@@ -95,6 +113,7 @@ enum WebService {
     
     static func call(
         path: Endpoint,
+        method: Method = .post,
         params: [URLQueryItem],
         completion: @escaping (Result) -> Void
     ) {
@@ -105,7 +124,8 @@ enum WebService {
         components?.queryItems = params
         
         call(
-            path: .login,
+            path: path,
+            method: method,
             contentType: .formaUrl,
             data: components?.query?.data(using: .utf8),
             completion: completion
