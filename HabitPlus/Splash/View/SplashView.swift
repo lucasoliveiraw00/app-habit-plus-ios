@@ -19,7 +19,7 @@ struct SplashView: View {
             case .goToSingInScreen:
                 viewModel.signInView()
             case .goToHomeScreen:
-                Text("Carregar tela principal")
+                viewModel.homeView()
             case .error(let error):
                 LoadingView(error: error)
             }
