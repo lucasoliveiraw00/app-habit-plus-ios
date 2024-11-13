@@ -17,7 +17,7 @@ struct SplashView: View {
             case .loading:
                 LoadingView()
             case .goToSingInScreen:
-                Text("Carregar tela de login")
+                viewModel.signInView()
             case .goToHomeScreen:
                 Text("Carregar tela principal")
             case .error(let error):
@@ -28,7 +28,7 @@ struct SplashView: View {
 }
 
 extension SplashView {
-    func LoadingView(error: String? = nil) -> some View {
+    private func LoadingView(error: String? = nil) -> some View {
         ZStack {
             Image("logo")
                 .resizable()
@@ -36,7 +36,6 @@ extension SplashView {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(20)
                 .ignoresSafeArea()
-                .background(Color.white)
             
             if let error = error {
                 Text("").alert(isPresented: .constant(true)) {
@@ -50,5 +49,5 @@ extension SplashView {
 }
 
 #Preview {
-    SplashView(viewModel: SplashViewModel())
+    SplashView(viewModel: SplashViewModel(interactor: SplashInteractor()))
 }
