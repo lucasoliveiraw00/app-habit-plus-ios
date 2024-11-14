@@ -33,6 +33,10 @@
 		496E4CB62CD078F900219AA8 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E4CB52CD078F900219AA8 /* ErrorResponse.swift */; };
 		496E4CB82CD0800600219AA8 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E4CB72CD0800600219AA8 /* SignInResponse.swift */; };
 		496E4CBA2CD0810A00219AA8 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E4CB92CD0810A00219AA8 /* SignInRequest.swift */; };
+		497037712CE5804500A9F885 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497037702CE5804500A9F885 /* ButtonStyles.swift */; };
+		497037732CE583EB00A9F885 /* HabitCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497037722CE583EB00A9F885 /* HabitCardViewModel.swift */; };
+		497037752CE5883A00A9F885 /* HabitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497037742CE5883A00A9F885 /* HabitCardView.swift */; };
+		497037772CE5982400A9F885 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497037762CE5982300A9F885 /* View+Extension.swift */; };
 		498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */; };
 		498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A362CC4B3DB00D33A70 /* HomeView.swift */; };
 		498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */; };
@@ -81,6 +85,10 @@
 		496E4CB52CD078F900219AA8 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		496E4CB72CD0800600219AA8 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		496E4CB92CD0810A00219AA8 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
+		497037702CE5804500A9F885 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		497037722CE583EB00A9F885 /* HabitCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardViewModel.swift; sourceTree = "<group>"; };
+		497037742CE5883A00A9F885 /* HabitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardView.swift; sourceTree = "<group>"; };
+		497037762CE5982300A9F885 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		498E2A362CC4B3DB00D33A70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -131,8 +139,8 @@
 		491287602CC4496000AA4EFC /* HabitPlus */ = {
 			isa = PBXGroup;
 			children = (
-				49151C772CE4354B00ECFE79 /* Habit */,
 				49BAA1FC2CC71CEB00BBCDDF /* Common */,
+				49151C772CE4354B00ECFE79 /* Habit */,
 				498E2A3C2CC4BB9800D33A70 /* SignUp */,
 				498E2A312CC4B38700D33A70 /* Home */,
 				4912877A2CC4767900AA4EFC /* SignIn */,
@@ -250,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				49151C7B2CE435B400ECFE79 /* HabitView.swift */,
+				497037742CE5883A00A9F885 /* HabitCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				49151C7D2CE435D100ECFE79 /* HabitViewModel.swift */,
+				497037722CE583EB00A9F885 /* HabitCardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -274,6 +284,7 @@
 		4951FFDB2CC8879F003175AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4970376F2CE5801800A9F885 /* Modifier */,
 				4951FFDF2CC88DDF003175AE /* Style */,
 				4951FFDC2CC887C5003175AE /* EditTextView.swift */,
 				49B962F22CCC81980029A46C /* CustomButton.swift */,
@@ -296,6 +307,23 @@
 				49F97C2D2CD4700B000A4B25 /* LocalDataSource.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		4970376F2CE5801800A9F885 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				497037702CE5804500A9F885 /* ButtonStyles.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		497037782CE598C500A9F885 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				497037762CE5982300A9F885 /* View+Extension.swift */,
+				49B962F02CCC7C640029A46C /* String+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		498E2A312CC4B38700D33A70 /* Home */ = {
@@ -371,19 +399,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		49B962EF2CCC7C410029A46C /* Lang */ = {
-			isa = PBXGroup;
-			children = (
-				49B962F02CCC7C640029A46C /* String+Extension.swift */,
-			);
-			path = Lang;
-			sourceTree = "<group>";
-		};
 		49BAA1FC2CC71CEB00BBCDDF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				497037782CE598C500A9F885 /* Extensions */,
 				496E4CAE2CD0524200219AA8 /* Network */,
-				49B962EF2CCC7C410029A46C /* Lang */,
 				4951FFDB2CC8879F003175AE /* View */,
 				49BAA1FD2CC71CF300BBCDDF /* Model */,
 			);
@@ -506,13 +526,17 @@
 				49F97C352CD48143000A4B25 /* SplashRemoteDataSource.swift in Sources */,
 				498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */,
 				498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */,
+				497037712CE5804500A9F885 /* ButtonStyles.swift in Sources */,
 				49F97C2C2CD46F90000A4B25 /* UserAuth.swift in Sources */,
 				491287832CC476E400AA4EFC /* SignInViewModel.swift in Sources */,
+				497037752CE5883A00A9F885 /* HabitCardView.swift in Sources */,
 				493316FE2CD311F700B4F280 /* AppError.swift in Sources */,
+				497037772CE5982400A9F885 /* View+Extension.swift in Sources */,
 				49151C822CE4365300ECFE79 /* HomeViewRouter.swift in Sources */,
 				498E2A492CC4BC3D00D33A70 /* SignUpViewModel.swift in Sources */,
 				491287852CC476F300AA4EFC /* SignInModel.swift in Sources */,
 				498E2A412CC4BBCC00D33A70 /* SignUpView.swift in Sources */,
+				497037732CE583EB00A9F885 /* HabitCardViewModel.swift in Sources */,
 				49B962F32CCC81980029A46C /* CustomButton.swift in Sources */,
 				493317032CD319B300B4F280 /* SignUpRemoteDataSource.swift in Sources */,
 				4951FFE12CC88DFF003175AE /* CustomTextFieldStyle.swift in Sources */,

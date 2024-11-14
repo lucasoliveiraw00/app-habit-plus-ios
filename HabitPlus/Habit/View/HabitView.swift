@@ -1,10 +1,3 @@
-//
-//  HabitView.swift
-//  HabitPlus
-//
-//  Created by Lucas De Oliveira Silva Firmino on 12/11/24.
-//
-
 import SwiftUI
 
 struct HabitView: View {
@@ -16,25 +9,41 @@ struct HabitView: View {
             if case HabitUIState.loading = viewModel.uiState {
                 progress
             } else {
-                NavigationView() {
+                NavigationView {
                     ScrollView(showsIndicators: false) {
-                        VStack {
+                        VStack(spacing: 12) {
                             topContainer
-                            
                             addButton
-                            
-                            if case HabitUIState.empytList = viewModel.uiState {
-                                empytList
-                            } else if case HabitUIState.fullList = viewModel.uiState {
-                                
+                            if case HabitUIState.emptyList = viewModel.uiState {
+                                emptyList
+                            } else if case HabitUIState.fullList(let rows) = viewModel.uiState {
+                                fullList(rows: rows)
                             } else if case HabitUIState.error = viewModel.uiState {
-                                
+                                Text("")
+                                    .onAppear {
+                                        viewModel.onAppearAlert()
+                                    }
                             }
                         }
                     }
                     .navigationTitle("Meus Hábitos")
+                    .alert(isPresented: $viewModel.showErrorAlert) {
+                        Alert(
+                            title: Text("Ops! Ocorreu um erro"),
+                            message: Text(viewModel.errorMessage),
+                            primaryButton: .default(Text("Sim")) {
+                                viewModel.onAppear()
+                            },
+                            secondaryButton: .cancel {
+                                viewModel.resetState()
+                            }
+                        )
+                    }
                 }
             }
+        }
+        .onAppear {
+            viewModel.onAppear()
         }
     }
 }
@@ -75,22 +84,21 @@ extension HabitView {
     }
 }
 
-
 extension HabitView {
     var addButton: some View {
         NavigationLink(
             destination: Text("Tela de criar hábito")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         ) {
-            Label("Cirar Hábito", systemImage: "plus.app")
-                .accentColor(Color.orange)
+            Label("Criar Hábito", systemImage: "plus.app")
+                .modifier(ButtonStyles())
         }
         .padding(.horizontal, 16)
     }
 }
 
 extension HabitView {
-    var empytList: some View {
+    var emptyList: some View {
         Group {
             Spacer(minLength: 60)
             VStack {
@@ -101,6 +109,15 @@ extension HabitView {
                 Text("Nenhum hábito encontrado :(")
             }
         }
+    }
+}
+
+extension HabitView {
+    func fullList(rows: [HabitCardViewModel]) -> some View {
+        LazyVStack {
+            ForEach(rows, content: HabitCardView.init(viewModel:))
+        }
+        .padding(.horizontal, 14)
     }
 }
 
