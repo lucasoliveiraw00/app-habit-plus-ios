@@ -23,7 +23,7 @@ struct HabitCardView: View {
 
 extension HabitCardView {
     var navigationButton: some View {
-        NavigationLink(destination: Text("Destination"), isActive: self.$action) {
+        NavigationLink(destination: viewModel.habitDetailView(), isActive: self.$action) {
             EmptyView()
         }
     }
@@ -136,6 +136,6 @@ extension HabitCardView {
         }
         .listStyle(PlainListStyle())
         .frame(maxWidth: .infinity)
-        .navigationTitle("Hábito")
+        .navigationTitle("Hábitos")
     }
 }

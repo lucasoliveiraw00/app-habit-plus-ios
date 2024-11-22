@@ -43,7 +43,9 @@ struct HabitView: View {
             }
         }
         .onAppear {
-            viewModel.onAppear()
+            if !viewModel.opened {
+                viewModel.onAppear()
+            }
         }
     }
 }
@@ -122,5 +124,5 @@ extension HabitView {
 }
 
 #Preview {
-    HabitView(viewModel: HabitViewModel())
+    HabitView(viewModel: HabitViewModel(interactor: HabitInteractor()))
 }

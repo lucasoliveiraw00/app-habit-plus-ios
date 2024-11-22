@@ -6,16 +6,31 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
 class HabitViewModel: ObservableObject {
     
-    @Published var uiState: HabitUIState = .emptyList
+    @Published var uiState: HabitUIState = .loading
     
-    @Published var title = "Atenção"
-    @Published var headline = "Fique ligado!"
-    @Published var desc = "Você está atrasado nos hábitos"
+    @Published var title = ""
+    @Published var headline = ""
+    @Published var desc = ""
     
     @Published var showErrorAlert: Bool = false
+    @Published var opened: Bool = false
+    
+    private var cancellable: AnyCancellable?
+    private let interactor: HabitInteractor
+    
+    init (interactor: HabitInteractor) {
+        self.interactor = interactor
+    }
+    
+    deinit {
+        cancellable?.cancel()
+    }
+    
 }
 
 extension HabitViewModel {
@@ -42,61 +57,56 @@ extension HabitViewModel {
 extension HabitViewModel {
     func onAppear() {
         self.uiState = .loading
+        self.opened = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            var rows: [HabitCardViewModel] = []
-            
-            rows.append(HabitCardViewModel(
-                id: 1,
-                icon: "pencil",
-                date: "01/01/2021 00:00:00",
-                name: "Tocar guitarra",
-                label: "horas",
-                value: "2",
-                state: .green
-            ))
-            
-            rows.append(HabitCardViewModel(
-                id: 2,
-                icon: "book",
-                date: "02/01/2021 12:30:00",
-                name: "Ler um livro",
-                label: "páginas",
-                value: "15",
-                state: .blue
-            ))
-            
-            rows.append(HabitCardViewModel(
-                id: 3,
-                icon: "flame",
-                date: "03/01/2021 08:30:00",
-                name: "Correr",
-                label: "km",
-                value: "5",
-                state: .red
-            ))
-            
-            rows.append(HabitCardViewModel(
-                id: 4,
-                icon: "leaf",
-                date: "04/01/2021 07:00:00",
-                name: "Meditar",
-                label: "minutos",
-                value: "20",
-                state: .purple
-            ))
-            
-            rows.append(HabitCardViewModel(
-                id: 5,
-                icon: "bed.double.fill",
-                date: "05/01/2021 22:00:00",
-                name: "Dormir cedo",
-                label: "horas",
-                value: "8",
-                state: .orange
-            ))
-            
-            self.uiState = .fullList(rows)
-        }
+        cancellable = interactor.fetchHabits()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let appError):
+                    self.uiState = .error(appError.message)
+                    break
+                case .finished:
+                    break
+                }
+            }, receiveValue: { response in
+                if response.isEmpty {
+                    self.uiState = .emptyList
+                    
+                    self.title = ""
+                    self.headline = "Fique ligado!"
+                    self.desc = "Você ainda não possui hábitos"
+                } else {
+                    self.uiState = .fullList(
+                        response.map {
+                            let lastDate = $0.lastDate?.toDate(sourcePattern: "yyyy-MM-dd'T'HH:mm:ss", destPattern: "dd/MM/yyyy HH:mm") ?? ""
+                            let lastDateCompare = $0.lastDate?.toDate(sourcePattern: "yyyy-MM-dd'T'HH:mm:ss") ?? Date()
+                            
+                            var state = Color.green
+                            self.title = "Muito Bom!"
+                            self.headline = "Seus hábitos estão em dia"
+                            self.desc = ""
+                            
+                            
+                            if lastDateCompare < Date() {
+                                state = Color.red
+                                self.title = "Atenção"
+                                self.headline = "Fique ligado!"
+                                self.desc = "Você está atrasado nos hábitos"
+                            }
+                            
+                            return HabitCardViewModel(
+                                id: $0.id,
+                                icon: $0.iconUrl ?? "",
+                                date: lastDate,
+                                name: $0.name,
+                                label: $0.label,
+                                value: "\($0.value ?? 0)",
+                                state: state
+                            )
+                        }
+                    )
+                }
+            })
     }
 }
