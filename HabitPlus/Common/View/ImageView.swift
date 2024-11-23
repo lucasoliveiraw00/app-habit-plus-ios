@@ -40,7 +40,7 @@ class ImageLoader: ObservableObject {
     
     func load(url: String) {
         guard let url = URL(string: url) else {
-            print("URL inválida")
+            print("URL da imagem inválida")
             return
         }
         

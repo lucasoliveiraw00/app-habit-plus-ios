@@ -70,6 +70,7 @@
 		49BAA2012CC7257700BBCDDF /* SignUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAA2002CC7257700BBCDDF /* SignUpViewRouter.swift */; };
 		49DA84912CD1CB6900E55BD4 /* SignInErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA84902CD1CB6900E55BD4 /* SignInErrorResponse.swift */; };
 		49DA84942CD1D0FA00E55BD4 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA84932CD1D0FA00E55BD4 /* SignInInteractor.swift */; };
+		49F43D0D2CF25C5C0088691D /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43D0C2CF25C5C0088691D /* ChartView.swift */; };
 		49F97C2C2CD46F90000A4B25 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C2B2CD46F90000A4B25 /* UserAuth.swift */; };
 		49F97C2E2CD4700B000A4B25 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C2D2CD4700B000A4B25 /* LocalDataSource.swift */; };
 		49F97C312CD475B2000A4B25 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C302CD475B2000A4B25 /* SplashInteractor.swift */; };
@@ -142,6 +143,7 @@
 		49BAA2002CC7257700BBCDDF /* SignUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewRouter.swift; sourceTree = "<group>"; };
 		49DA84902CD1CB6900E55BD4 /* SignInErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInErrorResponse.swift; sourceTree = "<group>"; };
 		49DA84932CD1D0FA00E55BD4 /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
+		49F43D0C2CF25C5C0088691D /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		49F97C2B2CD46F90000A4B25 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		49F97C2D2CD4700B000A4B25 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		49F97C302CD475B2000A4B25 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				49BAA1FC2CC71CEB00BBCDDF /* Common */,
+				49F43D082CF25C150088691D /* Chart */,
 				493DCFEB2CF1850700E4D670 /* Profile */,
 				495080862CF01AD800C8D896 /* HabitDetail */,
 				49151C772CE4354B00ECFE79 /* Habit */,
@@ -552,8 +555,8 @@
 			children = (
 				497037782CE598C500A9F885 /* Extensions */,
 				496E4CAE2CD0524200219AA8 /* Network */,
-				4951FFDB2CC8879F003175AE /* View */,
 				49BAA1FD2CC71CF300BBCDDF /* Model */,
+				4951FFDB2CC8879F003175AE /* View */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -576,6 +579,38 @@
 				493317042CD31B0100B4F280 /* SignInRemoteDataSource.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		49F43D082CF25C150088691D /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				49F43D0B2CF25C3A0088691D /* Model */,
+				49F43D0A2CF25C2F0088691D /* ViewModel */,
+				49F43D092CF25C290088691D /* View */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		49F43D092CF25C290088691D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49F43D0C2CF25C5C0088691D /* ChartView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49F43D0A2CF25C2F0088691D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		49F43D0B2CF25C3A0088691D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49F97C2F2CD47570000A4B25 /* Interactor */ = {
@@ -707,6 +742,7 @@
 				491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */,
 				493DCFFD2CF19A0800E4D670 /* ProfileUIState.swift in Sources */,
 				49151C7E2CE435D100ECFE79 /* HabitViewModel.swift in Sources */,
+				49F43D0D2CF25C5C0088691D /* ChartView.swift in Sources */,
 				49151C7C2CE435B400ECFE79 /* HabitView.swift in Sources */,
 				49BAA1FF2CC71D0A00BBCDDF /* Gender.swift in Sources */,
 				490D82732CEC0FF800C12CBC /* HabitRemoteDataSource.swift in Sources */,
