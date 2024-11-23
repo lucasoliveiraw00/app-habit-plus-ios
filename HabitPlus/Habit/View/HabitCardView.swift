@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HabitCardView: View {
     
@@ -121,7 +122,8 @@ extension HabitCardView {
                 name: "Tocar guitarra",
                 label: "horas",
                 value: "2",
-                state: .green
+                state: .green,
+                habitPublisher: PassthroughSubject<Bool, Never>()
             ))
             
             HabitCardView(viewModel: HabitCardViewModel(
@@ -131,7 +133,8 @@ extension HabitCardView {
                 name: "Ler um livro",
                 label: "páginas",
                 value: "10",
-                state: .blue
+                state: .blue,
+                habitPublisher: PassthroughSubject<Bool, Never>()
             ))
         }
         .listStyle(PlainListStyle())
