@@ -57,12 +57,10 @@ extension HabitCardView {
 
 extension HabitCardView {
     var iconView: some View {
-        Image(systemName: "pencil")
-            .resizable()
-            .scaledToFit()
-            .frame(width: 24, height: 24)
-            .foregroundColor(.orange)
-            .padding(.leading, 8)
+        ImageView(url: viewModel.icon)
+            .aspectRatio(contentMode: .fill )
+            .frame(width: 32, height: 32)
+            .clipped()
     }
 }
 
