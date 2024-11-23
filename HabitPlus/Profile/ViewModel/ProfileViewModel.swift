@@ -21,7 +21,8 @@ class ProfileViewModel: ObservableObject {
     @Published var document = ""
     @Published var gender: Gender?
     
-    private var cancellable: AnyCancellable?
+    private var cancellableFetch: AnyCancellable?
+    private var cancellableUpdate: AnyCancellable?
     private let interactor: ProfileInteractor
     
     var disabledDone: Bool {
@@ -33,15 +34,16 @@ class ProfileViewModel: ObservableObject {
     init(interactor: ProfileInteractor) {
         self.interactor = interactor
     }
-
+    
     deinit {
-        cancellable?.cancel()
+        cancellableFetch?.cancel()
+        cancellableUpdate?.cancel()
     }
-
+    
     func fetchUser() {
         self.uiState = .loading
-
-        cancellable = interactor.fetchUser()
+        
+        cancellableFetch = interactor.fetchUser()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -62,27 +64,68 @@ class ProfileViewModel: ObservableObject {
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier: "en_US_POSIX")
                 formatter.dateFormat = "yyyy-MM-dd"
-
+                
                 let dateFormatted = formatter.date(from: response.birthday)
-
+                
                 guard let dateFormatted = dateFormatted else {
                     self.uiState = .fetchError("Data inválida \(response.birthday)")
                     return
                 }
-
+                
                 formatter.dateFormat = "dd/MM/yyyy"
                 let birthday = formatter.string(from: dateFormatted)
-
+                
                 self.birthdayValidation.value = birthday
                 self.uiState = .fetchSuccess
             })
     }
-
+    
+    func updateUser() {
+        self.uiState = .updateLoading
+        
+        guard let userId = userId, let gender = gender else { return }
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        let dateFormatted = formatter.date(from: birthdayValidation.value)
+        
+        guard let dateFormatted = dateFormatted else {
+            self.uiState = .updateError("Data inválida (\(birthdayValidation.value))")
+            return
+        }
+        
+        formatter.dateFormat = "yyyy-MM-dd"
+        let birthday = formatter.string(from: dateFormatted)
+        
+        cancellableUpdate = interactor.updateUser(
+            userId: userId,
+            profileRequest: ProfileRequest(
+                fullName: fullNameValidation.value,
+                phone: phoneValidation.value,
+                birthday: birthday,
+                gender: gender.index
+            )
+        )
+        .receive(on: DispatchQueue.main)
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .failure(let appError):
+                self.uiState = .updateError(appError.message)
+            case .finished:
+                break
+            }
+        }, receiveValue: { response in
+            self.uiState = .updateSuccess
+        })
+    }
+    
 }
 
 class FullNameValidation: ObservableObject {
     @Published var failure = false
-
+    
     var value: String = "" {
         didSet {
             failure = value.count < 3
@@ -92,7 +135,7 @@ class FullNameValidation: ObservableObject {
 
 class PhoneValidation: ObservableObject {
     @Published var failure = false
-
+    
     var value: String = "" {
         didSet {
             failure = value.count < 10 || value.count >= 12
@@ -102,7 +145,7 @@ class PhoneValidation: ObservableObject {
 
 class BirthdayValidation: ObservableObject {
     @Published var failure = false
-
+    
     var value: String = "" {
         didSet {
             failure = value.count != 10
