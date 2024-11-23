@@ -76,6 +76,7 @@
 		49F97C312CD475B2000A4B25 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C302CD475B2000A4B25 /* SplashInteractor.swift */; };
 		49F97C332CD47ED1000A4B25 /* RefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C322CD47ED1000A4B25 /* RefreshRequest.swift */; };
 		49F97C352CD48143000A4B25 /* SplashRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C342CD48143000A4B25 /* SplashRemoteDataSource.swift */; };
+		7EDD82AE559801C9BE39F124 /* Pods_HabitPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C894F5A5F26EFA6F7158105D /* Pods_HabitPlus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +150,9 @@
 		49F97C302CD475B2000A4B25 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		49F97C322CD47ED1000A4B25 /* RefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshRequest.swift; sourceTree = "<group>"; };
 		49F97C342CD48143000A4B25 /* SplashRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRemoteDataSource.swift; sourceTree = "<group>"; };
+		76B92A742AA62EF0DED7D573 /* Pods-HabitPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitPlus.release.xcconfig"; path = "Target Support Files/Pods-HabitPlus/Pods-HabitPlus.release.xcconfig"; sourceTree = "<group>"; };
+		C894F5A5F26EFA6F7158105D /* Pods_HabitPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F35FD273B9ABBEC2991B74C2 /* Pods-HabitPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitPlus.debug.xcconfig"; path = "Target Support Files/Pods-HabitPlus/Pods-HabitPlus.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,12 +160,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EDD82AE559801C9BE39F124 /* Pods_HabitPlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37805E9F4562F4C2B35520C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C894F5A5F26EFA6F7158105D /* Pods_HabitPlus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4360945A07619BAE1688C218 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F35FD273B9ABBEC2991B74C2 /* Pods-HabitPlus.debug.xcconfig */,
+				76B92A742AA62EF0DED7D573 /* Pods-HabitPlus.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		490D82712CEC0FC200C12CBC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +198,8 @@
 			children = (
 				491287602CC4496000AA4EFC /* HabitPlus */,
 				4912875F2CC4496000AA4EFC /* Products */,
+				4360945A07619BAE1688C218 /* Pods */,
+				37805E9F4562F4C2B35520C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -629,9 +653,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4912876C2CC4496100AA4EFC /* Build configuration list for PBXNativeTarget "HabitPlus" */;
 			buildPhases = (
+				6E502180398AF534171C734B /* [CP] Check Pods Manifest.lock */,
 				4912875A2CC4496000AA4EFC /* Sources */,
 				4912875B2CC4496000AA4EFC /* Frameworks */,
 				4912875C2CC4496000AA4EFC /* Resources */,
+				4A48AF9FB0FE8EC02FA79A9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -686,6 +712,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A48AF9FB0FE8EC02FA79A9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HabitPlus/Pods-HabitPlus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HabitPlus/Pods-HabitPlus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HabitPlus/Pods-HabitPlus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E502180398AF534171C734B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HabitPlus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4912875A2CC4496000AA4EFC /* Sources */ = {
@@ -802,7 +870,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -865,7 +933,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -886,6 +954,7 @@
 		};
 		4912876D2CC4496100AA4EFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F35FD273B9ABBEC2991B74C2 /* Pods-HabitPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -916,6 +985,7 @@
 		};
 		4912876E2CC4496100AA4EFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B92A742AA62EF0DED7D573 /* Pods-HabitPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
