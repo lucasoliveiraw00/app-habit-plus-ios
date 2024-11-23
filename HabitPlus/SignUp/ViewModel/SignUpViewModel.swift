@@ -40,6 +40,7 @@ extension SignUpViewModel {
     func signUp() {
         self.uiState = .loading
         
+        
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "dd/MM/yyyy"
