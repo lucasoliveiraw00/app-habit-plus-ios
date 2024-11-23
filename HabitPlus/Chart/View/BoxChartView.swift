@@ -89,7 +89,7 @@ class DateAxisValueFormatter: AxisValueFormatter {
         
         let df = DateFormatter()
         df.locale = Locale(identifier: "en_US_POSIX")
-        df.dateFormat = "yyyy-MM-dd"
+        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
         guard let date = df.date(from: dates[position]) else {
             return ""

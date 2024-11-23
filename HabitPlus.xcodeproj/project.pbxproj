@@ -59,6 +59,10 @@
 		497037772CE5982400A9F885 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497037762CE5982300A9F885 /* View+Extension.swift */; };
 		498D9EB32CF275C400580DAC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EB22CF275C400580DAC /* ChartViewModel.swift */; };
 		498D9EB52CF2760900580DAC /* BoxChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EB42CF2760900580DAC /* BoxChartView.swift */; };
+		498D9EB72CF2810D00580DAC /* ChartUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EB62CF2810D00580DAC /* ChartUIState.swift */; };
+		498D9EB92CF2818B00580DAC /* HabitValueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EB82CF2818B00580DAC /* HabitValueResponse.swift */; };
+		498D9EBC2CF2827900580DAC /* ChartRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EBB2CF2827900580DAC /* ChartRemoteDataSource.swift */; };
+		498D9EBE2CF282E900580DAC /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EBD2CF282E900580DAC /* ChartInteractor.swift */; };
 		498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */; };
 		498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A362CC4B3DB00D33A70 /* HomeView.swift */; };
 		498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */; };
@@ -135,6 +139,10 @@
 		497037762CE5982300A9F885 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		498D9EB22CF275C400580DAC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		498D9EB42CF2760900580DAC /* BoxChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxChartView.swift; sourceTree = "<group>"; };
+		498D9EB62CF2810D00580DAC /* ChartUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUIState.swift; sourceTree = "<group>"; };
+		498D9EB82CF2818B00580DAC /* HabitValueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitValueResponse.swift; sourceTree = "<group>"; };
+		498D9EBB2CF2827900580DAC /* ChartRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRemoteDataSource.swift; sourceTree = "<group>"; };
+		498D9EBD2CF282E900580DAC /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
 		498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		498E2A362CC4B3DB00D33A70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -505,6 +513,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		498D9EBA2CF2819E00580DAC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				498D9EBB2CF2827900580DAC /* ChartRemoteDataSource.swift */,
+				498D9EBD2CF282E900580DAC /* ChartInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		498E2A312CC4B38700D33A70 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +629,7 @@
 		49F43D082CF25C150088691D /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				498D9EBA2CF2819E00580DAC /* Interactor */,
 				49F43D0B2CF25C3A0088691D /* Model */,
 				49F43D0A2CF25C2F0088691D /* ViewModel */,
 				49F43D092CF25C290088691D /* View */,
@@ -639,6 +657,8 @@
 		49F43D0B2CF25C3A0088691D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				498D9EB62CF2810D00580DAC /* ChartUIState.swift */,
+				498D9EB82CF2818B00580DAC /* HabitValueResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -770,9 +790,11 @@
 				491287872CC478BA00AA4EFC /* SplashViewRouter.swift in Sources */,
 				493317012CD3193800B4F280 /* SignUpInteractor.swift in Sources */,
 				49B962F12CCC7C640029A46C /* String+Extension.swift in Sources */,
+				498D9EBE2CF282E900580DAC /* ChartInteractor.swift in Sources */,
 				490D82752CEC111900C12CBC /* HabitInteractor.swift in Sources */,
 				493DCFF92CF1993B00E4D670 /* ProfileRemoteDataSource.swift in Sources */,
 				4950808B2CF01B3B00C8D896 /* HabitDetailView.swift in Sources */,
+				498D9EBC2CF2827900580DAC /* ChartRemoteDataSource.swift in Sources */,
 				493DCFF62CF1989A00E4D670 /* ProfileResponse.swift in Sources */,
 				498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */,
 				496E4CB42CD0773400219AA8 /* SignUpResponse.swift in Sources */,
@@ -783,6 +805,7 @@
 				49DA84942CD1D0FA00E55BD4 /* SignInInteractor.swift in Sources */,
 				495080942CF0260300C8D896 /* HabitDetailInteractor.swift in Sources */,
 				491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */,
+				498D9EB92CF2818B00580DAC /* HabitValueResponse.swift in Sources */,
 				498D9EB32CF275C400580DAC /* ChartViewModel.swift in Sources */,
 				498D9EB52CF2760900580DAC /* BoxChartView.swift in Sources */,
 				491287622CC4496000AA4EFC /* HabitPlusApp.swift in Sources */,
@@ -824,6 +847,7 @@
 				490D82732CEC0FF800C12CBC /* HabitRemoteDataSource.swift in Sources */,
 				498E2A472CC4BC2300D33A70 /* SignUpModel.swift in Sources */,
 				496E4CB22CD0678A00219AA8 /* SignUpRequest.swift in Sources */,
+				498D9EB72CF2810D00580DAC /* ChartUIState.swift in Sources */,
 				493DCFEA2CF16A6800E4D670 /* ImageView.swift in Sources */,
 				49F97C332CD47ED1000A4B25 /* RefreshRequest.swift in Sources */,
 				491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */,
