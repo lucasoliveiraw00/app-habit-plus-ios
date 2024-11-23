@@ -9,7 +9,7 @@ import Foundation
 
 enum HabitUIState {
     case loading
-    case empytList
-    case fullList
+    case emptyList
+    case fullList([HabitCardViewModel])
     case error(String)
 }
