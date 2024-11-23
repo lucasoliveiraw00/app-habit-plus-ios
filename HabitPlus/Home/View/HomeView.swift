@@ -23,7 +23,7 @@ struct HomeView: View {
                 Image(systemName: "chart.bar" )
                 Text("Gráficos")
             }.tag(2)
-            Text("Conteúdo de perfil \(selection)").tabItem {
+            viewModel.profileView().tabItem {
                 Image(systemName: "person.crop.circle" )
                 Text("Perfil")
             }.tag(3)
