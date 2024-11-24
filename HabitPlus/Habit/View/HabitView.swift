@@ -91,7 +91,7 @@ extension HabitView {
 extension HabitView {
     var addButton: some View {
         NavigationLink(
-            destination: Text("Tela de criar hábito")
+            destination: viewModel.habitCreateView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         ) {
             Label("Criar Hábito", systemImage: "plus.app")
@@ -118,7 +118,7 @@ extension HabitView {
 
 extension HabitView {
     func fullList(rows: [HabitCardViewModel]) -> some View {
-        LazyVStack {
+        VStack {
             ForEach(rows) { row in
                 HabitCardView(viewModel: row, isChart: self.viewModel.isChart)
             }

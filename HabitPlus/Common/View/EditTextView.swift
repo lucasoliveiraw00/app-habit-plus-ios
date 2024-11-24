@@ -12,6 +12,7 @@ struct EditTextView: View {
     @Binding var text: String
     
     var placeholder: String = ""
+    var mask: String? = nil
     var keyboard: UIKeyboardType = .default
     var enableSecure: Bool = false
     var error: String? = nil
@@ -45,6 +46,11 @@ extension EditTextView {
                 RoundedRectangle(cornerRadius: 8.8)
                     .stroke(borderColor(), lineWidth: 0.8)
             )
+            .onChange(of: text) { value in
+                if let mask = mask {
+                    Mask.mask(mask: mask, value: value, text: &text)
+                }
+            }
     }
 }
 

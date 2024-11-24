@@ -42,7 +42,8 @@ enum WebService {
     
     enum ContentType: String {
         case json = "application/json"
-        case formaUrl = "application/x-www-form-urlencoded"
+        case formUrl = "application/x-www-form-urlencoded"
+        case multipart = "multipart/form-data"
     }
     
     private static func completeUrl(path: String) -> URLRequest? {
@@ -57,6 +58,7 @@ enum WebService {
         method: Method,
         contentType: ContentType,
         data: Data?,
+        boundary: String = "",
         completion: @escaping (Result) -> Void
     ) {
         guard var urlRequest = completeUrl(path: path) else { return }
@@ -67,9 +69,14 @@ enum WebService {
                     urlRequest.setValue("\(userAuth.tokenType) \(userAuth.acessToken)", forHTTPHeaderField: "Authorization")
                 }
                 
+                if contentType == .multipart {
+                    urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+                } else {
+                    urlRequest.setValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
+                }
+                
                 urlRequest.httpMethod = method.rawValue
                 urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
-                urlRequest.setValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
                 urlRequest.httpBody = data
                 
                 let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
@@ -87,6 +94,9 @@ enum WebService {
                             completion(.failure(.unauthorized, data))
                             break
                         case 200:
+                            completion(.success(data))
+                            break
+                        case 201:
                             completion(.success(data))
                             break
                         default:
@@ -159,24 +169,60 @@ enum WebService {
         )
     }
     
-    static func call(
+    public static func call(
         path: Endpoint,
         method: Method = .post,
         params: [URLQueryItem],
+        data: Data? = nil,
         completion: @escaping (Result) -> Void
     ) {
         guard let urlRequest = completeUrl(path: path.rawValue) else { return }
-        guard let absolueteURL = urlRequest.url?.absoluteString else { return }
+        guard let absoluteURL = urlRequest.url?.absoluteString else { return }
         
-        var components = URLComponents(string: absolueteURL)
+        var components = URLComponents(string: absoluteURL)
         components?.queryItems = params
         
-        call(
-            path: path.rawValue,
-            method: method,
-            contentType: .formaUrl,
-            data: components?.query?.data(using: .utf8),
-            completion: completion
-        )
+        let boundary = "Boundary-\(NSUUID().uuidString)"
+        
+        call(path: path.rawValue,
+             method: method,
+             contentType: data != nil ? .multipart : .formUrl,
+             data: data != nil ? createBodyWithParameters(
+                params: params,
+                data: data!,
+                boundary: boundary
+             ) : components?.query?.data(using: .utf8),
+             boundary: boundary,
+             completion: completion)
+    }
+    
+    
+    private static func createBodyWithParameters(params: [URLQueryItem], data: Data, boundary: String) -> Data {
+        let body = NSMutableData()
+        
+        for param in params {
+            body.appendString("--\(boundary)\r\n")
+            body.appendString("Content-Disposition: form-data; name=\"\(param.name)\"\r\n\r\n")
+            body.appendString("\(param.value ?? "")\r\n")
+        }
+        
+        let filename = "img.jpg"
+        let mimetype = "image/jpeg"
+        
+        body.appendString("--\(boundary)\r\n")
+        body.appendString("Content-Disposition: form-data; name=\"file\"; filename=\"\(filename)\"\r\n")
+        body.appendString("Content-Type: \(mimetype)\r\n\r\n")
+        body.append(data)
+        body.appendString("\r\n")
+        body.appendString("--\(boundary)--\r\n")
+        
+        return body as Data
+    }
+    
+}
+
+extension NSMutableData {
+    func appendString(_ string: String) {
+        append(string.data(using: .utf8, allowLossyConversion: true)!)
     }
 }

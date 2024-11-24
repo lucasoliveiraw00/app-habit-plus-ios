@@ -23,44 +23,47 @@ struct HabitDetailView: View {
                 Text(viewModel.name)
                     .foregroundColor(Color.orange)
                     .font(.title.bold())
-
+                
                 Text("Unidade: \(viewModel.label)")
-
-                VStack {
-                    TextField("Escreva aqui o valor conquistado", text: $viewModel.value)
-                        .multilineTextAlignment(.center)
-                        .textFieldStyle(PlainTextFieldStyle())
-                        .keyboardType(.numberPad)
-                }
-
+            }
+            
+            VStack {
+                TextField("Escreva aqui o valor conquistado", text: $viewModel.value)
+                    .multilineTextAlignment(.center)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .keyboardType(.numberPad)
+                
                 Divider()
                     .frame(height: 1)
                     .background(Color.gray)
                     .padding(.horizontal, 32)
 
-                Text("Os registros devem ser feitos em até 24h.\nHábitos se constroem todos os dias :)")
-
-                CustomButton(
-                    text: "Salvar",
-                    action: {
-                        viewModel.save()
-                    },
-                    isLoading: self.viewModel.uiState == .loading,
-                    disabled: self.viewModel.value.isEmpty
-                )
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-
-                Button("Cancelar") {
-                    self.presentationMode.wrappedValue.dismiss()
-                }
-                .modifier(ButtonStyles())
-                .padding(.horizontal, 16)
-
-                Spacer()
-                    .padding(.horizontal, 8)
-                    .padding(.top, 32)
             }
+            .padding(.horizontal, 32)
+            
+            Text("Os registros devem ser feitos em até 24h.\nHábitos se constroem todos os dias :)")
+
+            CustomButton(
+                text: "Salvar",
+                action: {
+                    viewModel.save()
+                },
+                isLoading: self.viewModel.uiState == .loading,
+                disabled: self.viewModel.value.isEmpty
+            )
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+
+            Button("Cancelar") {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+            .modifier(ButtonStyles())
+            .padding(.horizontal, 16)
+
+            Spacer()
+                .padding(.horizontal, 8)
+                .padding(.top, 32)
+           
         }
     }
 }

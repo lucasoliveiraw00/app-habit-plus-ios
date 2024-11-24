@@ -19,7 +19,7 @@ struct ImageView: View {
     }
     
     var body: some View {
-        Image(uiImage: image)
+        Image(uiImage: UIImage(data: imageLoader.data) ?? image)
             .resizable()
             .scaledToFit()
             .onReceive(imageLoader.$data) { data in

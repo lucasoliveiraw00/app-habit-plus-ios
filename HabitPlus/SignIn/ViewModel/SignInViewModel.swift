@@ -19,9 +19,11 @@ class SignInViewModel: ObservableObject {
     private var cancellableLogin: AnyCancellable?
     private let publisher = PassthroughSubject<Bool, Never>()
     private let interactor: SignInInteractor
+    private let homeViewModel: HomeViewModel
     
-    init (interactor: SignInInteractor) {
+    init (interactor: SignInInteractor, homeViewModel: HomeViewModel) {
         self.interactor = interactor
+        self.homeViewModel = homeViewModel
         cancellable = publisher.sink { value in
             if (value) {
                 self.uiState = .goToHomeScreen
@@ -73,7 +75,7 @@ extension SignInViewModel {
 
 extension SignInViewModel {
     func homeView() -> some View {
-        return SignInViewRouter.makeHomeView()
+        return SignInViewRouter.makeHomeView(homeViewModel: self.homeViewModel)
     }
     func signUpView() -> some View {
         return SignInViewRouter.makeSignUpView(publisher: self.publisher)
