@@ -118,7 +118,7 @@ extension HabitView {
 
 extension HabitView {
     func fullList(rows: [HabitCardViewModel]) -> some View {
-        LazyVStack {
+        VStack {
             ForEach(rows) { row in
                 HabitCardView(viewModel: row, isChart: self.viewModel.isChart)
             }

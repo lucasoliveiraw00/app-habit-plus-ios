@@ -62,7 +62,8 @@ extension SignUpView {
             text: $viewModel.fullName,
             placeholder: "Nome completo",
             error: "Preencher nome completo",
-            enableFailure: fullNameIsInvalid()
+            enableFailure: fullNameIsInvalid(),
+            autocapitalization: .words
         )
     }
     
