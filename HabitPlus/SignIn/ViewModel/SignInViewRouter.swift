@@ -9,8 +9,8 @@ import SwiftUI
 import Combine
 
 enum SignInViewRouter {
-    static func makeHomeView() -> some View {
-        return HomeView(viewModel: HomeViewModel())
+    static func makeHomeView(homeViewModel: HomeViewModel) -> some View {
+        return HomeView(viewModel: homeViewModel)
     }
     static func makeSignUpView(publisher: PassthroughSubject<Bool, Never>) -> some View {
         let viewModel = SignUpViewModel(interactor: SignUpInteractor())

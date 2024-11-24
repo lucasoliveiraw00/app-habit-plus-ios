@@ -36,5 +36,21 @@ extension String {
         
         return formatter.date(from: self)
     }
-
+    
+    func characterAtIndex(index: Int) -> Character? {
+        guard index >= 0 && index < self.count else {
+            return nil
+        }
+        
+        var cur = 0
+        for char in self {
+            if cur == index {
+                return char
+            }
+            cur += 1
+        }
+        
+        return nil
+    }
+    
 }

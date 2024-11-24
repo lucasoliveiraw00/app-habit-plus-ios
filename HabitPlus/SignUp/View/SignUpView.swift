@@ -110,6 +110,7 @@ extension SignUpView {
         EditTextView(
             text: $viewModel.document,
             placeholder: "CPF",
+            mask: "###.###.###-##",
             keyboard: .numberPad,
             error: "CPF inválido",
             enableFailure: documentIsInvalid()
@@ -117,7 +118,7 @@ extension SignUpView {
     }
     
     private func documentIsInvalid() -> Bool {
-        return viewModel.document.count != 11
+        return viewModel.document.count != 14
     }
 }
 
@@ -126,6 +127,7 @@ extension SignUpView {
         EditTextView(
             text: $viewModel.phone,
             placeholder: "Celular",
+            mask: "(##) ####-####",
             keyboard: .numberPad,
             error: "Celular inválido",
             enableFailure: phoneIsInvalid()
@@ -133,7 +135,7 @@ extension SignUpView {
     }
     
     private func phoneIsInvalid() -> Bool {
-        return viewModel.phone.count < 10 || viewModel.phone.count >= 12
+        return viewModel.phone.count < 14 || viewModel.phone.count > 15
     }
 }
 
@@ -142,6 +144,7 @@ extension SignUpView {
         EditTextView(
             text: $viewModel.birthday,
             placeholder: "Data de nascimento",
+            mask: "##/##/####",
             keyboard: .numberPad,
             error: "Data inválida",
             enableFailure: birthdayIsInvalid()

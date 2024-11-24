@@ -71,6 +71,8 @@
 		498D9ECF2CF2C18E00580DAC /* HabitCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ECE2CF2C18E00580DAC /* HabitCreateRequest.swift */; };
 		498D9ED12CF2C60000580DAC /* HabitViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ED02CF2C60000580DAC /* HabitViewRouter.swift */; };
 		498D9ED32CF2CBF700580DAC /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ED22CF2CBF700580DAC /* ImagePickerView.swift */; };
+		498D9ED62CF2EE6200580DAC /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ED52CF2EE6200580DAC /* Mask.swift */; };
+		498D9ED82CF2F23C00580DAC /* ProfileEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ED72CF2F23C00580DAC /* ProfileEditTextView.swift */; };
 		498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */; };
 		498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A362CC4B3DB00D33A70 /* HomeView.swift */; };
 		498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */; };
@@ -159,6 +161,8 @@
 		498D9ECE2CF2C18E00580DAC /* HabitCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateRequest.swift; sourceTree = "<group>"; };
 		498D9ED02CF2C60000580DAC /* HabitViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewRouter.swift; sourceTree = "<group>"; };
 		498D9ED22CF2CBF700580DAC /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		498D9ED52CF2EE6200580DAC /* Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
+		498D9ED72CF2F23C00580DAC /* ProfileEditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditTextView.swift; sourceTree = "<group>"; };
 		498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		498E2A362CC4B3DB00D33A70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -490,6 +494,7 @@
 				4970376F2CE5801800A9F885 /* Modifier */,
 				4951FFDF2CC88DDF003175AE /* Style */,
 				4951FFDC2CC887C5003175AE /* EditTextView.swift */,
+				498D9ED72CF2F23C00580DAC /* ProfileEditTextView.swift */,
 				49B962F22CCC81980029A46C /* CustomButton.swift */,
 				493DCFE92CF16A6800E4D670 /* ImageView.swift */,
 				498D9ED22CF2CBF700580DAC /* ImagePickerView.swift */,
@@ -586,6 +591,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		498D9ED42CF2EE4700580DAC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				498D9ED52CF2EE6200580DAC /* Mask.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		498E2A312CC4B38700D33A70 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -662,6 +675,7 @@
 		49BAA1FC2CC71CEB00BBCDDF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				498D9ED42CF2EE4700580DAC /* Util */,
 				497037782CE598C500A9F885 /* Extensions */,
 				496E4CAE2CD0524200219AA8 /* Network */,
 				49BAA1FD2CC71CF300BBCDDF /* Model */,
@@ -881,7 +895,9 @@
 				493317052CD31B0100B4F280 /* SignInRemoteDataSource.swift in Sources */,
 				493DCFF42CF1882600E4D670 /* GenderSelectorView.swift in Sources */,
 				495080982CF0274500C8D896 /* HabitValueRequest.swift in Sources */,
+				498D9ED62CF2EE6200580DAC /* Mask.swift in Sources */,
 				49DA84912CD1CB6900E55BD4 /* SignInErrorResponse.swift in Sources */,
+				498D9ED82CF2F23C00580DAC /* ProfileEditTextView.swift in Sources */,
 				498D9EC82CF2C0F600580DAC /* HabitCreateUIState.swift in Sources */,
 				49F97C352CD48143000A4B25 /* SplashRemoteDataSource.swift in Sources */,
 				498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */,
@@ -1068,6 +1084,7 @@
 				DEVELOPMENT_TEAM = 77P2YANQ76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Upload de fotos de hábitos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1099,6 +1116,7 @@
 				DEVELOPMENT_TEAM = 77P2YANQ76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Upload de fotos de hábitos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
