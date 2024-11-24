@@ -10,9 +10,11 @@ import Combine
 
 struct HabitCardView: View {
     
+    @State private var action = false
+    
     let viewModel: HabitCardViewModel
     
-    @State private var action = false
+    let isChart: Bool
     
     var body: some View {
         ZStack(alignment: .trailing) {
@@ -24,8 +26,16 @@ struct HabitCardView: View {
 
 extension HabitCardView {
     var navigationButton: some View {
-        NavigationLink(destination: viewModel.habitDetailView(), isActive: self.$action) {
-            EmptyView()
+        Group{
+            if isChart {
+                NavigationLink(destination: viewModel.chartView(), isActive: self.$action) {
+                    EmptyView()
+                }
+            } else {
+                NavigationLink(destination: viewModel.habitDetailView(), isActive: self.$action) {
+                    EmptyView()
+                }
+            }
         }
     }
 }
@@ -106,6 +116,7 @@ extension HabitCardView {
         Rectangle()
             .frame(width: 8)
             .foregroundColor(viewModel.state)
+            .opacity(!isChart ? 1 : 0)
             .cornerRadius(8, corners: [.topRight, .bottomRight])
     }
 }
@@ -113,27 +124,33 @@ extension HabitCardView {
 #Preview {
     NavigationView {
         List {
-            HabitCardView(viewModel: HabitCardViewModel(
-                id: 1,
-                icon: "pencil",
-                date: "01/01/2021 00:00:00",
-                name: "Tocar guitarra",
-                label: "horas",
-                value: "2",
-                state: .green,
-                habitPublisher: PassthroughSubject<Bool, Never>()
-            ))
+            HabitCardView(
+                viewModel: HabitCardViewModel(
+                    id: 1,
+                    icon: "pencil",
+                    date: "01/01/2021 00:00:00",
+                    name: "Tocar guitarra",
+                    label: "horas",
+                    value: "2",
+                    state: .green,
+                    habitPublisher: PassthroughSubject<Bool, Never>()
+                ),
+                isChart: false
+            )
             
-            HabitCardView(viewModel: HabitCardViewModel(
-                id: 2,
-                icon: "pencil",
-                date: "02/01/2021 00:00:00",
-                name: "Ler um livro",
-                label: "páginas",
-                value: "10",
-                state: .blue,
-                habitPublisher: PassthroughSubject<Bool, Never>()
-            ))
+            HabitCardView(
+                viewModel: HabitCardViewModel(
+                    id: 2,
+                    icon: "pencil",
+                    date: "02/01/2021 00:00:00",
+                    name: "Ler um livro",
+                    label: "páginas",
+                    value: "10",
+                    state: .blue,
+                    habitPublisher: PassthroughSubject<Bool, Never>()
+                ),
+                isChart: true
+            )
         }
         .listStyle(PlainListStyle())
         .frame(maxWidth: .infinity)

@@ -12,8 +12,10 @@ struct HabitView: View {
                 NavigationView {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 12) {
-                            topContainer
-                            addButton
+                            if !viewModel.isChart {
+                                topContainer
+                                addButton
+                            }
                             if case HabitUIState.emptyList = viewModel.uiState {
                                 emptyList
                             } else if case HabitUIState.fullList(let rows) = viewModel.uiState {
@@ -117,12 +119,14 @@ extension HabitView {
 extension HabitView {
     func fullList(rows: [HabitCardViewModel]) -> some View {
         LazyVStack {
-            ForEach(rows, content: HabitCardView.init(viewModel:))
+            ForEach(rows) { row in
+                HabitCardView(viewModel: row, isChart: self.viewModel.isChart)
+            }
         }
         .padding(.horizontal, 14)
     }
 }
 
 #Preview {
-    HabitView(viewModel: HabitViewModel(interactor: HabitInteractor()))
+    HabitView(viewModel: HabitViewModel(isChart: false , interactor: HabitInteractor()))
 }

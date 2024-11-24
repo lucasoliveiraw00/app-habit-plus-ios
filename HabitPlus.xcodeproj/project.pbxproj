@@ -57,6 +57,12 @@
 		497037732CE583EB00A9F885 /* HabitCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497037722CE583EB00A9F885 /* HabitCardViewModel.swift */; };
 		497037752CE5883A00A9F885 /* HabitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497037742CE5883A00A9F885 /* HabitCardView.swift */; };
 		497037772CE5982400A9F885 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497037762CE5982300A9F885 /* View+Extension.swift */; };
+		498D9EB32CF275C400580DAC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EB22CF275C400580DAC /* ChartViewModel.swift */; };
+		498D9EB52CF2760900580DAC /* BoxChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EB42CF2760900580DAC /* BoxChartView.swift */; };
+		498D9EB72CF2810D00580DAC /* ChartUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EB62CF2810D00580DAC /* ChartUIState.swift */; };
+		498D9EB92CF2818B00580DAC /* HabitValueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EB82CF2818B00580DAC /* HabitValueResponse.swift */; };
+		498D9EBC2CF2827900580DAC /* ChartRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EBB2CF2827900580DAC /* ChartRemoteDataSource.swift */; };
+		498D9EBE2CF282E900580DAC /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9EBD2CF282E900580DAC /* ChartInteractor.swift */; };
 		498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */; };
 		498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A362CC4B3DB00D33A70 /* HomeView.swift */; };
 		498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */; };
@@ -70,11 +76,13 @@
 		49BAA2012CC7257700BBCDDF /* SignUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAA2002CC7257700BBCDDF /* SignUpViewRouter.swift */; };
 		49DA84912CD1CB6900E55BD4 /* SignInErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA84902CD1CB6900E55BD4 /* SignInErrorResponse.swift */; };
 		49DA84942CD1D0FA00E55BD4 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DA84932CD1D0FA00E55BD4 /* SignInInteractor.swift */; };
+		49F43D0D2CF25C5C0088691D /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F43D0C2CF25C5C0088691D /* ChartView.swift */; };
 		49F97C2C2CD46F90000A4B25 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C2B2CD46F90000A4B25 /* UserAuth.swift */; };
 		49F97C2E2CD4700B000A4B25 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C2D2CD4700B000A4B25 /* LocalDataSource.swift */; };
 		49F97C312CD475B2000A4B25 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C302CD475B2000A4B25 /* SplashInteractor.swift */; };
 		49F97C332CD47ED1000A4B25 /* RefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C322CD47ED1000A4B25 /* RefreshRequest.swift */; };
 		49F97C352CD48143000A4B25 /* SplashRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F97C342CD48143000A4B25 /* SplashRemoteDataSource.swift */; };
+		7EDD82AE559801C9BE39F124 /* Pods_HabitPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C894F5A5F26EFA6F7158105D /* Pods_HabitPlus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +137,12 @@
 		497037722CE583EB00A9F885 /* HabitCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardViewModel.swift; sourceTree = "<group>"; };
 		497037742CE5883A00A9F885 /* HabitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardView.swift; sourceTree = "<group>"; };
 		497037762CE5982300A9F885 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		498D9EB22CF275C400580DAC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		498D9EB42CF2760900580DAC /* BoxChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxChartView.swift; sourceTree = "<group>"; };
+		498D9EB62CF2810D00580DAC /* ChartUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUIState.swift; sourceTree = "<group>"; };
+		498D9EB82CF2818B00580DAC /* HabitValueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitValueResponse.swift; sourceTree = "<group>"; };
+		498D9EBB2CF2827900580DAC /* ChartRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRemoteDataSource.swift; sourceTree = "<group>"; };
+		498D9EBD2CF282E900580DAC /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
 		498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		498E2A362CC4B3DB00D33A70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -142,11 +156,15 @@
 		49BAA2002CC7257700BBCDDF /* SignUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewRouter.swift; sourceTree = "<group>"; };
 		49DA84902CD1CB6900E55BD4 /* SignInErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInErrorResponse.swift; sourceTree = "<group>"; };
 		49DA84932CD1D0FA00E55BD4 /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
+		49F43D0C2CF25C5C0088691D /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		49F97C2B2CD46F90000A4B25 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		49F97C2D2CD4700B000A4B25 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		49F97C302CD475B2000A4B25 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		49F97C322CD47ED1000A4B25 /* RefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshRequest.swift; sourceTree = "<group>"; };
 		49F97C342CD48143000A4B25 /* SplashRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRemoteDataSource.swift; sourceTree = "<group>"; };
+		76B92A742AA62EF0DED7D573 /* Pods-HabitPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitPlus.release.xcconfig"; path = "Target Support Files/Pods-HabitPlus/Pods-HabitPlus.release.xcconfig"; sourceTree = "<group>"; };
+		C894F5A5F26EFA6F7158105D /* Pods_HabitPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F35FD273B9ABBEC2991B74C2 /* Pods-HabitPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitPlus.debug.xcconfig"; path = "Target Support Files/Pods-HabitPlus/Pods-HabitPlus.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,12 +172,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EDD82AE559801C9BE39F124 /* Pods_HabitPlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37805E9F4562F4C2B35520C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C894F5A5F26EFA6F7158105D /* Pods_HabitPlus.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4360945A07619BAE1688C218 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F35FD273B9ABBEC2991B74C2 /* Pods-HabitPlus.debug.xcconfig */,
+				76B92A742AA62EF0DED7D573 /* Pods-HabitPlus.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		490D82712CEC0FC200C12CBC /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +210,8 @@
 			children = (
 				491287602CC4496000AA4EFC /* HabitPlus */,
 				4912875F2CC4496000AA4EFC /* Products */,
+				4360945A07619BAE1688C218 /* Pods */,
+				37805E9F4562F4C2B35520C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				49BAA1FC2CC71CEB00BBCDDF /* Common */,
+				49F43D082CF25C150088691D /* Chart */,
 				493DCFEB2CF1850700E4D670 /* Profile */,
 				495080862CF01AD800C8D896 /* HabitDetail */,
 				49151C772CE4354B00ECFE79 /* Habit */,
@@ -474,6 +513,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		498D9EBA2CF2819E00580DAC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				498D9EBB2CF2827900580DAC /* ChartRemoteDataSource.swift */,
+				498D9EBD2CF282E900580DAC /* ChartInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		498E2A312CC4B38700D33A70 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,8 +600,8 @@
 			children = (
 				497037782CE598C500A9F885 /* Extensions */,
 				496E4CAE2CD0524200219AA8 /* Network */,
-				4951FFDB2CC8879F003175AE /* View */,
 				49BAA1FD2CC71CF300BBCDDF /* Model */,
+				4951FFDB2CC8879F003175AE /* View */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -578,6 +626,43 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		49F43D082CF25C150088691D /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				498D9EBA2CF2819E00580DAC /* Interactor */,
+				49F43D0B2CF25C3A0088691D /* Model */,
+				49F43D0A2CF25C2F0088691D /* ViewModel */,
+				49F43D092CF25C290088691D /* View */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		49F43D092CF25C290088691D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49F43D0C2CF25C5C0088691D /* ChartView.swift */,
+				498D9EB42CF2760900580DAC /* BoxChartView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49F43D0A2CF25C2F0088691D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				498D9EB22CF275C400580DAC /* ChartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		49F43D0B2CF25C3A0088691D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				498D9EB62CF2810D00580DAC /* ChartUIState.swift */,
+				498D9EB82CF2818B00580DAC /* HabitValueResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		49F97C2F2CD47570000A4B25 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,9 +679,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4912876C2CC4496100AA4EFC /* Build configuration list for PBXNativeTarget "HabitPlus" */;
 			buildPhases = (
+				6E502180398AF534171C734B /* [CP] Check Pods Manifest.lock */,
 				4912875A2CC4496000AA4EFC /* Sources */,
 				4912875B2CC4496000AA4EFC /* Frameworks */,
 				4912875C2CC4496000AA4EFC /* Resources */,
+				4A48AF9FB0FE8EC02FA79A9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -652,6 +739,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A48AF9FB0FE8EC02FA79A9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HabitPlus/Pods-HabitPlus-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HabitPlus/Pods-HabitPlus-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HabitPlus/Pods-HabitPlus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E502180398AF534171C734B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HabitPlus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4912875A2CC4496000AA4EFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -661,9 +790,11 @@
 				491287872CC478BA00AA4EFC /* SplashViewRouter.swift in Sources */,
 				493317012CD3193800B4F280 /* SignUpInteractor.swift in Sources */,
 				49B962F12CCC7C640029A46C /* String+Extension.swift in Sources */,
+				498D9EBE2CF282E900580DAC /* ChartInteractor.swift in Sources */,
 				490D82752CEC111900C12CBC /* HabitInteractor.swift in Sources */,
 				493DCFF92CF1993B00E4D670 /* ProfileRemoteDataSource.swift in Sources */,
 				4950808B2CF01B3B00C8D896 /* HabitDetailView.swift in Sources */,
+				498D9EBC2CF2827900580DAC /* ChartRemoteDataSource.swift in Sources */,
 				493DCFF62CF1989A00E4D670 /* ProfileResponse.swift in Sources */,
 				498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */,
 				496E4CB42CD0773400219AA8 /* SignUpResponse.swift in Sources */,
@@ -674,6 +805,9 @@
 				49DA84942CD1D0FA00E55BD4 /* SignInInteractor.swift in Sources */,
 				495080942CF0260300C8D896 /* HabitDetailInteractor.swift in Sources */,
 				491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */,
+				498D9EB92CF2818B00580DAC /* HabitValueResponse.swift in Sources */,
+				498D9EB32CF275C400580DAC /* ChartViewModel.swift in Sources */,
+				498D9EB52CF2760900580DAC /* BoxChartView.swift in Sources */,
 				491287622CC4496000AA4EFC /* HabitPlusApp.swift in Sources */,
 				493DCFF02CF1853500E4D670 /* ProfileView.swift in Sources */,
 				49F97C2E2CD4700B000A4B25 /* LocalDataSource.swift in Sources */,
@@ -707,11 +841,13 @@
 				491287742CC44B2A00AA4EFC /* SplashView.swift in Sources */,
 				493DCFFD2CF19A0800E4D670 /* ProfileUIState.swift in Sources */,
 				49151C7E2CE435D100ECFE79 /* HabitViewModel.swift in Sources */,
+				49F43D0D2CF25C5C0088691D /* ChartView.swift in Sources */,
 				49151C7C2CE435B400ECFE79 /* HabitView.swift in Sources */,
 				49BAA1FF2CC71D0A00BBCDDF /* Gender.swift in Sources */,
 				490D82732CEC0FF800C12CBC /* HabitRemoteDataSource.swift in Sources */,
 				498E2A472CC4BC2300D33A70 /* SignUpModel.swift in Sources */,
 				496E4CB22CD0678A00219AA8 /* SignUpRequest.swift in Sources */,
+				498D9EB72CF2810D00580DAC /* ChartUIState.swift in Sources */,
 				493DCFEA2CF16A6800E4D670 /* ImageView.swift in Sources */,
 				49F97C332CD47ED1000A4B25 /* RefreshRequest.swift in Sources */,
 				491287792CC45E9F00AA4EFC /* SplashViewModel.swift in Sources */,
@@ -766,7 +902,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -829,7 +965,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -850,6 +986,7 @@
 		};
 		4912876D2CC4496100AA4EFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F35FD273B9ABBEC2991B74C2 /* Pods-HabitPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -880,6 +1017,7 @@
 		};
 		4912876E2CC4496100AA4EFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76B92A742AA62EF0DED7D573 /* Pods-HabitPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
