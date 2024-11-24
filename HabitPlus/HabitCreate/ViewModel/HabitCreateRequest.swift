@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct HabitCreateRequest: Encodable {
-    let value: String
+struct HabitCreateRequest {
+    let imageData: Data?
+    let name: String
+    let label: String
 }

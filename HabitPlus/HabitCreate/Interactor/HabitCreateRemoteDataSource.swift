@@ -15,25 +15,25 @@ class HabitCreateRemoteDataSource {
     private init() {
     }
     
-    func save(habitId: Int, request: HabitCreateRequest) -> Future<Bool, AppError> {
-        return Future<Bool, AppError> { promise in
-            let path = String(format: WebService.Endpoint.habitValues.rawValue, habitId)
-            
-            WebService.call(path: path, method: .post, body: request) { result in
+    func save(request: HabitCreateRequest) -> Future<Void, AppError> {
+        return Future { promise in
+            WebService.call(path: .habits, params: [
+                URLQueryItem(name: "name", value: request.name),
+                URLQueryItem(name: "label", value: request.label)
+            ]) { result in
                 switch result {
-                case .failure(_, let data):
+                case .failure(let error, let data):
                     if let data = data {
-                        let decoder = JSONDecoder()
-                        if let response = try? decoder.decode(SignInErrorResponse.self, from: data) {
-                            promise(.failure(AppError.response(message: response.detail.message)))
-                        } else {
-                            promise(.failure(AppError.response(message: "Erro desconhecido no servidor")))
+                        if error == .unauthorized {
+                            let decoder = JSONDecoder()
+                            let response = try? decoder.decode(SignInErrorResponse.self, from: data)
+                            promise(.failure(AppError.response(message: response?.detail.message ?? "Erro desconhecido no servidor")))
                         }
-                    } else {
-                        promise(.failure(AppError.response(message: "Erro desconhecido no servidor")))
                     }
+                    break
                 case .success(_):
-                    promise(.success(true))
+                    promise(.success(()))
+                    break
                 }
             }
         }

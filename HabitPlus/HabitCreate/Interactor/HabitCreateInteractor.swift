@@ -13,7 +13,7 @@ class HabitCreateInteractor {
 }
 
 extension HabitCreateInteractor {
-    func save(habitId: Int, habitValueRequest request: HabitCreateRequest) -> Future<Bool, AppError> {
-        return remote.save(habitId: habitId, request: request)
+    func save(habitCreateRequest request: HabitCreateRequest) -> Future<Void, AppError> {
+        return remote.save(request: request)
     }
 }

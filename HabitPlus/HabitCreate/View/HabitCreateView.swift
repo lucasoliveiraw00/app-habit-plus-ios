@@ -13,8 +13,6 @@ struct HabitCreateView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State private var shouldPresentCamera = false
-    
     init(viewModel: HabitCreateViewModel) {
         self.viewModel = viewModel
     }
@@ -23,10 +21,10 @@ struct HabitCreateView: View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .center, spacing: 12) {
                 Button(action: {
-                    self.shouldPresentCamera = true
+                    self.viewModel.shouldPresentCamera = true
                 }, label: {
                     VStack {
-                        Image(systemName: "camera.fill")
+                        viewModel.image!
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100, height: 100)
@@ -37,30 +35,36 @@ struct HabitCreateView: View {
                     }
                 })
                 .padding(.bottom, 12)
+                .sheet(isPresented: self.$viewModel.shouldPresentCamera) {
+                    ImagePickerView(
+                        image: self.$viewModel.image,
+                        imageData: self.$viewModel.imageData,
+                        isPresented: self.$viewModel.shouldPresentCamera,
+                        sourceType: .photoLibrary
+                    )
+                }
             }
-
+            
             VStack {
                 TextField("Escreva aqui o nome do hábito", text: $viewModel.name)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(PlainTextFieldStyle())
-                    .keyboardType(.numberPad)
                 
                 Divider()
                     .frame(height: 1)
                     .background(Color.gray)
             }.padding(.horizontal, 32)
-
+            
             VStack {
-                TextField("Escreva aqui a unidade de medida", text: $viewModel.name)
+                TextField("Escreva aqui a unidade de medida", text: $viewModel.label)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(PlainTextFieldStyle())
-                    .keyboardType(.numberPad)
                 
                 Divider()
                     .frame(height: 1)
                     .background(Color.gray)
             }.padding(.horizontal, 32)
-
+            
             CustomButton(
                 text: "Salvar",
                 action: {
@@ -71,25 +75,25 @@ struct HabitCreateView: View {
             )
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
-
+            
             Button("Cancelar") {
                 self.presentationMode.wrappedValue.dismiss()
             }
             .modifier(ButtonStyles())
             .padding(.horizontal, 16)
-
+            
             Spacer()
                 .padding(.horizontal, 8)
                 .padding(.top, 32)
-           
+            
         }
     }
 }
 
 #Preview {
-    HabitCreateView(viewModel: 
-        HabitCreateViewModel(
-            interactor: HabitCreateInteractor()
-        )
+    HabitCreateView(viewModel:
+                        HabitCreateViewModel(
+                            interactor: HabitCreateInteractor()
+                        )
     )
 }

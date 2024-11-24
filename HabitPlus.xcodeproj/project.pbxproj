@@ -70,6 +70,7 @@
 		498D9ECD2CF2C14100580DAC /* HabitCreateRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ECC2CF2C14100580DAC /* HabitCreateRemoteDataSource.swift */; };
 		498D9ECF2CF2C18E00580DAC /* HabitCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ECE2CF2C18E00580DAC /* HabitCreateRequest.swift */; };
 		498D9ED12CF2C60000580DAC /* HabitViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ED02CF2C60000580DAC /* HabitViewRouter.swift */; };
+		498D9ED32CF2CBF700580DAC /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D9ED22CF2CBF700580DAC /* ImagePickerView.swift */; };
 		498E2A302CC4B29000D33A70 /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */; };
 		498E2A372CC4B3DB00D33A70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A362CC4B3DB00D33A70 /* HomeView.swift */; };
 		498E2A392CC4B3F500D33A70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */; };
@@ -157,6 +158,7 @@
 		498D9ECC2CF2C14100580DAC /* HabitCreateRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateRemoteDataSource.swift; sourceTree = "<group>"; };
 		498D9ECE2CF2C18E00580DAC /* HabitCreateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateRequest.swift; sourceTree = "<group>"; };
 		498D9ED02CF2C60000580DAC /* HabitViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewRouter.swift; sourceTree = "<group>"; };
+		498D9ED22CF2CBF700580DAC /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		498E2A2F2CC4B29000D33A70 /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		498E2A362CC4B3DB00D33A70 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		498E2A382CC4B3F500D33A70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 				4951FFDC2CC887C5003175AE /* EditTextView.swift */,
 				49B962F22CCC81980029A46C /* CustomButton.swift */,
 				493DCFE92CF16A6800E4D670 /* ImageView.swift */,
+				498D9ED22CF2CBF700580DAC /* ImagePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -869,6 +872,7 @@
 				495080942CF0260300C8D896 /* HabitDetailInteractor.swift in Sources */,
 				491287762CC44B6C00AA4EFC /* SplashUIState.swift in Sources */,
 				498D9EB92CF2818B00580DAC /* HabitValueResponse.swift in Sources */,
+				498D9ED32CF2CBF700580DAC /* ImagePickerView.swift in Sources */,
 				498D9EB32CF275C400580DAC /* ChartViewModel.swift in Sources */,
 				498D9EB52CF2760900580DAC /* BoxChartView.swift in Sources */,
 				491287622CC4496000AA4EFC /* HabitPlusApp.swift in Sources */,
