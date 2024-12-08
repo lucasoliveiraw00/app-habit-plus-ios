@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignUpView: View {
     
@@ -192,5 +193,11 @@ extension SignUpView {
     }
 }
 #Preview {
-    SignUpView(viewModel: SignUpViewModel(interactor: SignUpInteractor()))
+    SignUpView(
+        viewModel: SignUpViewModel(
+            interactor: SignUpInteractor(),
+            goToHomePublisher: PassthroughSubject(),
+            resetAuthPublisher: PassthroughSubject()
+        )
+    )
 }

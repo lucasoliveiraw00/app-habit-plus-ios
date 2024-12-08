@@ -15,16 +15,19 @@ class SignInViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     
-    private var cancellable: AnyCancellable?
+    private var cancellableHome: AnyCancellable?
     private var cancellableLogin: AnyCancellable?
-    private let publisher = PassthroughSubject<Bool, Never>()
+    private let goToHomePublisher = PassthroughSubject<Bool, Never>()
     private let interactor: SignInInteractor
     private let homeViewModel: HomeViewModel
     
-    init (interactor: SignInInteractor, homeViewModel: HomeViewModel) {
+    init (
+        interactor: SignInInteractor,
+        homeViewModel: HomeViewModel
+    ) {
         self.interactor = interactor
         self.homeViewModel = homeViewModel
-        cancellable = publisher.sink { value in
+        cancellableHome = goToHomePublisher.sink { value in
             if (value) {
                 self.uiState = .goToHomeScreen
             }
@@ -32,7 +35,7 @@ class SignInViewModel: ObservableObject {
     }
     
     deinit {
-        cancellable?.cancel()
+        cancellableHome?.cancel()
         cancellableLogin?.cancel()
     }
     
@@ -66,7 +69,7 @@ extension SignInViewModel {
                     tokenType: success.tokenType
                 )
             )
-            self.publisher.send(true)
+            self.goToHomePublisher.send(true)
         })
         
     }
@@ -77,8 +80,12 @@ extension SignInViewModel {
     func homeView() -> some View {
         return SignInViewRouter.makeHomeView(homeViewModel: self.homeViewModel)
     }
+    
     func signUpView() -> some View {
-        return SignInViewRouter.makeSignUpView(publisher: self.publisher)
+        return SignInViewRouter.makeSignUpView(
+            goToHomePublisher: self.goToHomePublisher,
+            resetAuthPublisher: homeViewModel.resetAuthPublisher
+        )
     }
 }
 

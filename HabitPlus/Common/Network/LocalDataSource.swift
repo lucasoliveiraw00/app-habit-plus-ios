@@ -26,6 +26,10 @@ class LocalDataSource {
         }
         return userAuth
     }
+    
+    private func removeValue(forKey key: String) {
+        UserDefaults.standard.removeObject(forKey: key)
+    }
 }
 
 extension LocalDataSource {
@@ -39,5 +43,9 @@ extension LocalDataSource {
         return Future { promise in
             promise(.success(userAuth))
         }
+    }
+    
+    func removeUserAuth() {
+        removeValue(forKey: "user_key")
     }
 }
