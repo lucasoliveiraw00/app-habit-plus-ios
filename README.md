@@ -14,9 +14,9 @@ O projeto inclui funcionalidades práticas como criação e monitoramento de há
 
 ## **Demonstração**
 
-Confira abaixo um vídeo demonstrativo do **Habit Plus** em ação:
+Confira abaixo uma pequena demonstração do **Habit Plus** em ação:
 
-<video src="Docs/demo-video.mp4" controls width="400"></video>
+<img src="Docs/gif-demo.gif" width="400">
 
 ## **Credenciais de Teste**
 
