@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HomeView: View {
     
@@ -34,5 +35,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: HomeViewModel())
+    HomeView(viewModel: HomeViewModel(resetAuthPublisher: PassthroughSubject()))
 }
