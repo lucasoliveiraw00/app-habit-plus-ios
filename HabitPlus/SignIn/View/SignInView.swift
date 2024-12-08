@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignInView: View {
     
@@ -122,5 +123,10 @@ extension SignInView {
 }
 
 #Preview {
-    SignInView(viewModel: SignInViewModel(interactor: SignInInteractor(),homeViewModel: HomeViewModel()))
+    SignInView(
+        viewModel: SignInViewModel(
+            interactor: SignInInteractor(),
+            homeViewModel: HomeViewModel(resetAuthPublisher: PassthroughSubject())
+        )
+    )
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ProfileView: View {
     
@@ -100,6 +101,17 @@ struct ProfileView: View {
                                         }
                                     }
                                 )
+                                
+                            }
+                            Section {
+                                Button(action: {
+                                    viewModel.logout()
+                                }) {
+                                    Text("Sair")
+                                        .frame(maxWidth: .infinity)
+                                        .foregroundColor(.red)
+                                        .multilineTextAlignment(.center)
+                                }
                             }
                         }
                         .navigationBarTitle(Text("Editar Perfil"), displayMode: .automatic)
@@ -164,5 +176,10 @@ struct ProfileView: View {
 
 
 #Preview {
-    ProfileView(viewModel: ProfileViewModel(interactor: ProfileInteractor()))
+    ProfileView(
+        viewModel: ProfileViewModel(
+            interactor: ProfileInteractor(),
+            resetAuthPublisher: PassthroughSubject()
+        )
+    )
 }
