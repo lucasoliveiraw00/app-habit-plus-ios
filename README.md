@@ -6,9 +6,26 @@
 
 ## **Visão Geral**
 
-O **Habit Plus** foi desenvolvido como parte de um estudo voltado para o aprimoramento de habilidades em desenvolvimento iOS, utilizando **Swift** e **SwiftUI**. O foco principal não foi a criação de um layout sofisticado, mas sim a aplicação prática e o aprofundamento em conceitos de desenvolvimento moderno, com ênfase no uso de recursos e arquiteturas avançadas.
+O **Habit Plus** foi desenvolvido como parte de um estudo voltado para o aprimoramento de habilidades em desenvolvimento iOS, utilizando **Swift** e **SwiftUI**. O foco principal **não foi a criação de um layout sofisticado**, mas sim a **aplicação prática e o aprofundamento em conceitos de desenvolvimento moderno, com ênfase no uso de recursos e arquiteturas avançadas**.
 
 O projeto inclui funcionalidades práticas como criação e monitoramento de hábitos, persistência de dados e relatórios, sendo uma excelente base para consolidar o uso de tecnologias avançadas.
+
+---
+
+## **Demonstração**
+
+Confira abaixo um vídeo demonstrativo do **Habit Plus** em ação:
+
+<video src="Docs/demo-video.mp4" controls width="400"></video>
+
+## **Credenciais de Teste**
+
+Para facilitar a avaliação do aplicativo, use os seguintes dados de acesso para testes:
+
+### **Usuário de Teste**
+
+- **E-mail:** teste51@gmail.com
+- **Senha:** 12345678
 
 ---
 
