@@ -96,6 +96,16 @@ extension SignUpViewModel {
                             }
                         },
                         receiveValue: { success in
+                            
+                            self.interactor.insertAuth(
+                                userAuth: UserAuth(
+                                    acessToken: success.acessToken,
+                                    refreshToken: success.refreshToken,
+                                    expires: Date().timeIntervalSince1970 + Double(success.expires),
+                                    tokenType: success.tokenType
+                                )
+                            )
+                            
                             self.publisher?.send(created)
                             self.uiState = .success
                         })
