@@ -25,14 +25,20 @@ class ProfileViewModel: ObservableObject {
     private var cancellableUpdate: AnyCancellable?
     private let interactor: ProfileInteractor
     
+    var resetAuthPublisher: PassthroughSubject<Bool, Never>
+    
     var disabledDone: Bool {
         fullNameValidation.failure
         || phoneValidation.failure
         || birthdayValidation.failure
     }
     
-    init(interactor: ProfileInteractor) {
+    init(
+        interactor: ProfileInteractor,
+        resetAuthPublisher: PassthroughSubject<Bool, Never>
+    ) {
         self.interactor = interactor
+        self.resetAuthPublisher = resetAuthPublisher
     }
     
     deinit {
@@ -121,6 +127,10 @@ class ProfileViewModel: ObservableObject {
         })
     }
     
+    func logout() {
+        interactor.removeUserAuth()
+        resetAuthPublisher.send(true)
+    }
 }
 
 class FullNameValidation: ObservableObject {

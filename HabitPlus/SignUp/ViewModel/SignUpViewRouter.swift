@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-
+import Combine
 
 enum SignUpViewRouter {
-    static func makeHomeView() -> some View {
-        return HomeView(viewModel: HomeViewModel())
+    static func makeHomeView(resetAuthPublisher: PassthroughSubject<Bool, Never>) -> some View {
+        return HomeView(viewModel: HomeViewModel(resetAuthPublisher: resetAuthPublisher))
     }
 }

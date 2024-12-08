@@ -14,15 +14,25 @@ class SplashViewModel: ObservableObject {
     
     private var cancellableAuth: AnyCancellable?
     private var cancellableRefresh: AnyCancellable?
+    private var cancellableResetAuth: AnyCancellable?
     private let interactor: SplashInteractor
+    
+    private let resetAuthPublisher = PassthroughSubject<Bool, Never>()
     
     init (interactor: SplashInteractor) {
         self.interactor = interactor
+        
+        cancellableResetAuth = resetAuthPublisher.sink(
+            receiveValue: { isReset in
+                self.uiState = .goToSingInScreen
+            }
+        )
     }
     
     deinit {
         cancellableAuth?.cancel()
         cancellableRefresh?.cancel()
+        cancellableResetAuth?.cancel()
     }
     
 }
@@ -73,9 +83,10 @@ extension SplashViewModel {
 
 extension SplashViewModel {
     func signInView() -> some View {
-        return SplashViewRouter.makeSignInView()
-    } 
+        return SplashViewRouter.makeSignInView(resetAuthPublisher: resetAuthPublisher)
+    }
+    
     func homeView() -> some View {
-        return SplashViewRouter.makeHomeView()
+        return SplashViewRouter.makeHomeView(resetAuthPublisher: resetAuthPublisher)
     }
 }

@@ -19,14 +19,21 @@ class SignUpViewModel: ObservableObject {
     @Published var birthday = ""
     @Published var gender =  Gender.male
     
-    var publisher: PassthroughSubject<Bool, Never>?
+    var goToHomePublisher: PassthroughSubject<Bool, Never>
+    var resetAuthPublisher: PassthroughSubject<Bool, Never>
     
     private var cancellablePostUser: AnyCancellable?
     private var cancellableLogin: AnyCancellable?
     private let interactor: SignUpInteractor
     
-    init (interactor: SignUpInteractor) {
+    init (
+        interactor: SignUpInteractor,
+        goToHomePublisher: PassthroughSubject<Bool, Never>,
+        resetAuthPublisher: PassthroughSubject<Bool, Never>
+    ) {
         self.interactor = interactor
+        self.goToHomePublisher = goToHomePublisher
+        self.resetAuthPublisher = resetAuthPublisher
     }
     
     deinit {
@@ -106,7 +113,7 @@ extension SignUpViewModel {
                                 )
                             )
                             
-                            self.publisher?.send(created)
+                            self.goToHomePublisher.send(created)
                             self.uiState = .success
                         })
                 }
@@ -118,7 +125,7 @@ extension SignUpViewModel {
 
 extension SignUpViewModel {
     func homeView() -> some View {
-        return SignUpViewRouter.makeHomeView()
+        return SignUpViewRouter.makeHomeView(resetAuthPublisher: resetAuthPublisher)
     }
 }
 

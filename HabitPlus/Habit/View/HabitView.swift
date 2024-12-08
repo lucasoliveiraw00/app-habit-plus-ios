@@ -48,6 +48,9 @@ struct HabitView: View {
             if !viewModel.opened {
                 viewModel.onAppear()
             }
+            if viewModel.isChart {
+                viewModel.onAppear()
+            }
         }
     }
 }
