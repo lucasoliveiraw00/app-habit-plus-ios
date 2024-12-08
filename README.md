@@ -16,7 +16,7 @@ O projeto inclui funcionalidades práticas como criação e monitoramento de há
 
 Confira abaixo uma pequena demonstração do **Habit Plus** em ação:
 
-<img src="Docs/gif-demo.gif" alt="app habit plus" width="400" />
+<img src="./Docs/gif-demo.gif" alt="app habit plus" width="400" />
 
 ## **Credenciais de Teste**
 
