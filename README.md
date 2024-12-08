@@ -25,21 +25,21 @@ O projeto inclui funcionalidades práticas como criação e monitoramento de há
 
 ## **Principais Tecnologias e Conceitos Aplicados**
 
-- Estruturação de código com a arquitetura **MVVM**, garantindo organização e escalabilidade.
-- Desenvolvimento com **Swift** e **SwiftUI**, aproveitando toda a flexibilidade dessas ferramentas.
-- Gerenciamento reativo com **Combine** e programação funcional.
-- Uso de **Environment** e **EnvironmentObject** para compartilhamento eficiente e reativo de dados entre componentes da interface.
-- Navegação intuitiva e bem estruturada com **NavigationView**.
-- Validação de formulários e aplicação de máscaras para melhorar a experiência do usuário.
+- Arquitetura **MVVM** para organização e escalabilidade do código.
+- Desenvolvimento utilizando **Swift** e **SwiftUI**, explorando a flexibilidade dessas ferramentas.
+- **Combine** para gerenciamento reativo e programação funcional.
+- **Environment** e **EnvironmentObject** para compartilhamento de dados entre componentes.
+- Navegação bem estruturada utilizando **NavigationView**.
+- Validação de formulários com máscaras para aprimorar a experiência do usuário.
 - Integração com APIs REST, manipulando **JSON** e **FormData**.
 - Persistência de dados local e remoto.
-- Utilização de APIs nativas, como câmera e galeria, para criar funcionalidades avançadas.
+- Uso de APIs nativas, como câmera e galeria, para funcionalidades adicionais.
 - Integração de componentes UIKit no SwiftUI com **UIViewRepresentable**.
-- Aplicação de padrões e recursos como **Singleton, ViewModifier, Interactor, Decodable, Encodable, Binding**, entre outros.
+- Aplicação de padrões como **Singleton, ViewModifier, Interactor, Decodable, Encodable, Binding, Published**, entre outros.
 - Gerenciamento de dependências com **CocoaPods**.
-- Implementação de **Refresh Token** para maior segurança e continuidade de sessão.
+- Implementação de **Refresh Token** para segurança e continuidade de sessão.
 - Modularização e reaproveitamento de código com **Extensions**.
-- Criação de animações personalizadas para uma interface mais dinâmica e envolvente.
+- Animações personalizadas para tornar a interface mais dinâmica e envolvente.
 
 ---
 
