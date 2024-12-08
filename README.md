@@ -18,6 +18,8 @@ Confira abaixo uma pequena demonstração do **Habit Plus** em ação:
 
 <img src="./Docs/gif-demo.gif" alt="app habit plus" width="400" />
 
+**Nota:** Caso o GIF não carregue corretamente, você pode [ver a demonstração aqui](./Docs/gif-demo.gif).
+
 ## **Credenciais de Teste**
 
 Para facilitar a avaliação do aplicativo, use os seguintes dados de acesso para testes:
